@@ -45,7 +45,7 @@
 		int max_allies=3;
 		NSString *weblink = [NSString stringWithFormat:@"http://www.superpowersgame.com/scripts/mobileDiplomacyOffers.php?game_id=%d", self.gameObj.gameId];
 		NSString *result = [WebServicesFunctions getResponseFromWeb:weblink];
-		NSLog(@"result: %@ ", result);
+		NSLog(@"loadOffers: %@ ", result);
 	
 		NSArray *parts = [result componentsSeparatedByString:@"<a>"];
 		if(parts.count>0) {
@@ -85,14 +85,15 @@
 		int max_allies=3;
 		NSString *weblink = [NSString stringWithFormat:@"http://www.superpowersgame.com/scripts/mobileGetDiplomacy.php?game_id=%d", self.gameObj.gameId];
 		NSString *result = [WebServicesFunctions getResponseFromWeb:weblink];
-		NSLog(@"result: %@ ", result);
+		NSLog(@"loadDiplomacy: %@ ", result);
 		NSArray *parts = [result componentsSeparatedByString:@"<a>"];
 		if(parts.count>0) {
 			NSArray *components = [[parts objectAtIndex:0] componentsSeparatedByString:@"|"];
 			if(components.count>2) {
 				max_allies = [[components objectAtIndex:1] intValue];
 				NSString *allies = [components objectAtIndex:2];
-				[self.currentAllies addObjectsFromArray:[allies componentsSeparatedByString:@"+"]];
+				if(allies.length>0)
+					[self.currentAllies addObjectsFromArray:[allies componentsSeparatedByString:@"+"]];
 				if(self.currentAllies.count>max_allies)
 					[ObjectiveCScripts showAlertPopupWithDelegate:@"Notice!" :@"You are over your limit of allies. Choose one to remove" :self];
 			}

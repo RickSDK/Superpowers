@@ -118,7 +118,7 @@
         NSArray *components = [page componentsSeparatedByString:@"<a>"];
         if([components count]>1)
             page = [components objectAtIndex:1];
-        int bytes=[page length];
+        int bytes=(int)[page length];
         
         if(bytes>0)
             [self.mainWebView loadHTMLString:page baseURL:url];
@@ -147,6 +147,7 @@
 		if(buttonIndex!=alertView.cancelButtonIndex) {
 			[self generalBack];
 			self.attackButton.enabled=NO;
+			[self.navigationController popViewControllerAnimated:YES];
 		}
 		return;
 	}
@@ -251,7 +252,7 @@
     NSArray *components = [page componentsSeparatedByString:@"<a>"];
     if([components count]>1)
         page = [components objectAtIndex:1];
-    int bytes=[page length];
+    int bytes=(int)[page length];
     
     if(bytes>0) {
         if(showFlg)

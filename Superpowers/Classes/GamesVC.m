@@ -87,6 +87,7 @@
 		NSArray *valueList = [NSArray arrayWithObjects:[ObjectiveCScripts getUserDefaultValue:@"userName"], [ObjectiveCScripts getUserDefaultValue:@"password"], [ObjectiveCScripts getProjectDisplayVersion], nil];
 		NSString *webAddr = [NSString stringWithFormat:@"http://www.superpowersgame.com/scripts/web_games2.php?type=%d", (int)self.mainSegment.selectedSegmentIndex];
 		NSString *responseStr = [WebServicesFunctions getResponseFromServerUsingPost:webAddr:nameList:valueList];
+//		NSLog(@"responseStr: %@", responseStr);
 		
 		int numOpenGames=0;
 		if([WebServicesFunctions validateStandardResponse:responseStr :self]) {

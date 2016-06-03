@@ -28,7 +28,7 @@
 	IBOutlet UIButton *rulesButton;
 	IBOutlet UIButton *unitsButton;
 	IBOutlet UIButton *chatButton;
-	IBOutlet UIBarButtonItem *mailButton;
+	IBOutlet UIButton *mailButton;
 	IBOutlet UIButton *bugButton;
 	IBOutlet UIButton *trainingButton;
     IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -48,6 +48,7 @@
 - (IBAction) nextRankButtonClicked: (id) sender;
 - (IBAction) emailButtonClicked: (id) sender;
 - (IBAction) rulebookButtonClicked: (id) sender;
+- (IBAction) newPlayersButtonClicked: (id) sender;
 
 @property (nonatomic) BOOL showDisolve;
 @property (nonatomic) BOOL screenLock;
@@ -72,7 +73,7 @@
 @property (nonatomic, strong) UIButton *rulesButton;
 @property (nonatomic, strong) UIButton *unitsButton;
 @property (nonatomic, strong) UIButton *chatButton;
-@property (nonatomic, strong) UIBarButtonItem *mailButton;
+@property (nonatomic, strong) UIButton *mailButton;
 @property (nonatomic, strong) UIButton *bugButton;
 @property (nonatomic, strong) UIButton *trainingButton;
 @property (nonatomic, strong) LoginObj *loginObj;

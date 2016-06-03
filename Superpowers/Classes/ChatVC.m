@@ -13,51 +13,67 @@
 @synthesize webView;
 
 
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-*/
 
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if([self respondsToSelector:@selector(edgesForExtendedLayout)])
-        [self setEdgesForExtendedLayout:UIRectEdgeBottom];
-}
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self setTitle:@"Chat"];
-	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.superpowersgame.com/scripts/iphone_chat.php?game_id=1"]]];
+	
+	self.messages = [NSString new];
+	self.chat = [NSString new];
+	
+	[self.webServiceView start];
+	self.sendButton.enabled=NO;
+	[self performSelectorInBackground:@selector(loagMessages) withObject:nil];
+
 }
 
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+-(void)loagMessages {
+	@autoreleasepool {
+		
+		NSString *responseStr = [WebServicesFunctions getResponseFromWeb:@"http://www.superpowersgame.com/scripts/mobile_chat.php"];
+		NSArray *components = [responseStr componentsSeparatedByString:@"<a>"];
+		if(components.count>2) {
+			self.usersLabel.text = [components objectAtIndex:0];
+			self.chat = [components objectAtIndex:1];
+			self.messages = [components objectAtIndex:2];
+		}
+//		NSLog(@"response: %@", responseStr);
+		[self.webServiceView stop];
+		self.sendButton.enabled=YES;
+		[webView loadHTMLString:self.chat baseURL:[NSURL URLWithString:@"http://www.superpowersgame.com/scripts/mobile_chat.php"]];
+	}
+	
 }
-*/
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
+- (IBAction) segmentChanged: (id) sender {
+	[self.mainSegment changeSegment];
+	NSString *msg = (self.mainSegment.selectedSegmentIndex==0)?self.chat:self.messages;
+	[webView loadHTMLString:msg baseURL:[NSURL URLWithString:@"http://www.superpowersgame.com/scripts/mobile_chat.php"]];
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (IBAction) submitButtonClicked: (id) sender {
+	if(self.messagetextField.text.length==0) {
+		return;
+	}
+	self.sendButton.enabled=NO;
+	[self.webServiceView start];
+	[self performSelectorInBackground:@selector(postMessage) withObject:nil];
+}
+
+-(void)postMessage {
+	@autoreleasepool {
+		
+		NSArray *nameList = [NSArray arrayWithObjects:@"message", nil];
+		NSString *message = [self.messagetextField.text stringByReplacingOccurrencesOfString:@"|" withString:@""];
+		NSArray *valueList = [NSArray arrayWithObjects:message, nil];
+		NSString *responseStr = [WebServicesFunctions getResponseFromServerUsingPost:@"http://www.superpowersgame.com/scripts/mobilePostMessage.php":nameList:valueList];
+		NSLog(@"response: %@", responseStr);
+		if([WebServicesFunctions validateStandardResponse:responseStr:nil]) {
+			[self.messagetextField performSelectorOnMainThread:@selector(setText:) withObject:@"" waitUntilDone:NO];
+		}
+		[self performSelectorInBackground:@selector(loagMessages) withObject:nil];
+	}
+	
 }
 
 

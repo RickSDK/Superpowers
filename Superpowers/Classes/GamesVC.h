@@ -18,9 +18,6 @@
 @property (atomic, strong) IBOutlet UIButton *joinButton;
 @property (atomic, strong) IBOutlet UIButton *leagueButton;
 	
-//@property (atomic) int userRank;
-//@property (atomic) int user_id;
-	
 @property (atomic) int selectedRow;
 @property (atomic) int buttonNumber;
 @property (atomic) int challengeId;

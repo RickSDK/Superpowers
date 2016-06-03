@@ -59,6 +59,9 @@
             rank=14;
         self.rankLabel.text = [ranks objectAtIndex:rank];
         self.rankImageView.image=[UIImage imageNamed:[NSString stringWithFormat:@"rank%d.gif", rank]];
+	
+	self.phoneTextField.text = self.loginObj.phone;
+	self.popupView.hidden=self.loginObj.phone.length>0;
 
 	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Ranks" style:UIBarButtonItemStylePlain target:self action:@selector(ranksButtonClicked:)];
 	self.navigationItem.rightBarButtonItem = rightButton;
@@ -70,6 +73,58 @@
     detailViewController.screenNum = 9;
 	[self.navigationController pushViewController:detailViewController animated:YES];
 }
+
+- (IBAction) infoButtonClicked: (id) sender {
+	[ObjectiveCScripts showAlertPopup:@"Text Message" :@"Fill out this info so you get a text message when it's your turn."];
+}
+- (IBAction) updateButtonClicked: (id) sender {
+	self.updateButton.enabled=NO;
+	[self performSelectorInBackground:@selector(updateText) withObject:nil];
+}
+
+-(void)updateText {
+	@autoreleasepool {
+		NSString *text_msg = @"hey";
+		switch (self.mainSegment.selectedSegmentIndex) {
+			case 0:
+				text_msg = [NSString stringWithFormat:@"%@@txt.att.net", self.phoneTextField.text];
+    break;
+			case 1:
+				text_msg = [NSString stringWithFormat:@"%@@vtext.com", self.phoneTextField.text];
+    break;
+			case 2:
+				text_msg = [NSString stringWithFormat:@"%@@tmomail.net", self.phoneTextField.text];
+    break;
+			case 3:
+				text_msg = [NSString stringWithFormat:@"%@@messaging.sprintpcs.com", self.phoneTextField.text];
+    break;
+				
+			default:
+				text_msg = [NSString stringWithFormat:@"%@@txt.att.net", self.phoneTextField.text];
+	break;
+		}
+		NSString *responseStr = [WebServicesFunctions getResponseFromWeb:[NSString stringWithFormat:@"http://www.superpowersgame.com/scripts/mobileUpdateText.php?phone=%@&text_msg=%@", self.phoneTextField.text, text_msg]];
+		[ObjectiveCScripts showAlertPopup:@"Success" :@""];
+		NSLog(@"response: %@", responseStr);
+	}
+}
+
+- (IBAction) testButtonClicked: (id) sender {
+	self.testButton.enabled=NO;
+	[self performSelectorInBackground:@selector(sendTest) withObject:nil];
+}
+
+-(void)sendTest {
+	@autoreleasepool {
+		NSString *responseStr = [WebServicesFunctions getResponseFromWeb:@"http://www.superpowersgame.com/scripts/mobileSendText.php"];
+		[ObjectiveCScripts showAlertPopup:@"Success" :@""];
+		NSLog(@"response: %@", responseStr);
+	}
+}
+- (IBAction) phoneButtonClicked: (id) sender {
+	self.popupView.hidden=!self.popupView.hidden;
+}
+
 
 
 @end

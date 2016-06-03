@@ -26,8 +26,8 @@
 	@autoreleasepool {
 	//	[NSThread sleepForTimeInterval:2];
 	
-        int numPlayers = numPlayersSegment.selectedSegmentIndex+3;
-        int attackRound = attackRoundSegment.selectedSegmentIndex*2+4;
+        int numPlayers = (int)numPlayersSegment.selectedSegmentIndex+3;
+        int attackRound = (int)attackRoundSegment.selectedSegmentIndex*2+4;
         NSString *fogOgWar = fogOfWarSwitch.on?@"Y":@"N";
         NSString *randomNations = randomNamtionsSwitch.on?@"Y":@"N";
         

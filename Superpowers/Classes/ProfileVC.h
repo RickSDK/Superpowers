@@ -36,4 +36,14 @@
 @property (nonatomic, strong) UIImageView *rankImageView;
 @property (nonatomic, strong) LoginObj *loginObj;
 
+@property (nonatomic, strong) IBOutlet UITextField *phoneTextField;
+@property (nonatomic, strong) IBOutlet UIButton *phoneButton;
+@property (nonatomic, strong) IBOutlet UIButton *testButton;
+@property (nonatomic, strong) IBOutlet UIButton *updateButton;
+
+- (IBAction) infoButtonClicked: (id) sender;
+- (IBAction) updateButtonClicked: (id) sender;
+- (IBAction) testButtonClicked: (id) sender;
+- (IBAction) phoneButtonClicked: (id) sender;
+
 @end

@@ -18,6 +18,7 @@
 
 -(void)showCancelButton;
 -(void)startWithTitle:(NSString *)title;
+-(void)start;
 -(void)stop;
 
 @end

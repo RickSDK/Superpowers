@@ -7,13 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TemplateVC.h"
 
 
-@interface ChatVC : UIViewController {
-
-	IBOutlet UIWebView *webView;
+@interface ChatVC : TemplateVC {
 }
 
-@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) IBOutlet UIWebView *webView;
+@property (nonatomic, strong) IBOutlet UILabel *usersLabel;
+@property (nonatomic, strong) IBOutlet UITextField *messagetextField;
+@property (nonatomic, strong) IBOutlet UIButton *sendButton;
+@property (nonatomic, strong) NSString *messages;
+@property (nonatomic, strong) NSString *chat;
+
+- (IBAction) submitButtonClicked: (id) sender;
+
 
 @end

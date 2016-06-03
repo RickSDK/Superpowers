@@ -28,6 +28,9 @@
 	if(height<1000)
 		height=1000;
 	
+	self.popupView.hidden=YES;
+
+	
 	UIImageView *bg = [[UIImageView alloc] initWithFrame:CGRectMake(-200, -200, width, height)];
 	bg.image = [UIImage imageNamed:@"bg_gray.jpg"];
 	[self.view addSubview:bg];
@@ -103,6 +106,7 @@
 	[self performSelectorInBackground:aSelector withObject:nil];
 }
 
+
 -(void)stopWebService {
 	for(UIControl *button in self.webServiceElements)
 		button.enabled=YES;
@@ -118,6 +122,10 @@
 
 - (IBAction) segmentChanged: (id) sender {
 	[self.mainSegment changeSegment];
+}
+
+- (IBAction) xButtonPressed: (id) sender {
+	self.popupView.hidden=YES;
 }
 
 

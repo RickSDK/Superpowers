@@ -103,7 +103,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if([self isCellEditable:indexPath.row]) {
+    if([self isCellEditable:(int)indexPath.row]) {
         NSString *checkValue = [self.checkedItems objectAtIndex:indexPath.row];
         checkValue = ([checkValue isEqualToString:@"Y"])?@"N":@"Y";
         [self.checkedItems replaceObjectAtIndex:indexPath.row withObject:checkValue];
@@ -160,7 +160,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifierSection%dRow%d", indexPath.section, indexPath.row];
+    NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifierSection%dRow%d", (int)indexPath.section, (int)indexPath.row];
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
 	if(cell==nil)
@@ -176,7 +176,7 @@
     
     int piece = [[self.purchasePieces objectAtIndex:indexPath.row] intValue];
     
-    if([self isCellEditable:indexPath.row])
+    if([self isCellEditable:(int)indexPath.row])
         cell.backgroundColor = [UIColor whiteColor];
     else
         cell.backgroundColor = [UIColor grayColor];

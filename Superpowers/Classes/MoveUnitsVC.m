@@ -79,6 +79,17 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+	if(alertView.tag==101) {
+		if(buttonIndex==alertView.cancelButtonIndex)
+			return;
+		
+		NSLog(@"Refunding");
+		self.activityPopup.alpha=1;
+		[self.activityIndicator startAnimating];
+		self.unitsSelected=0;
+		self.mode=101;
+		[self performSelectorInBackground:@selector(placeServiceFunction) withObject:nil];
+	}
 	if(alertView.tag==99) {
 		if (buttonIndex >0) {
 		AttackBoardVC *detailViewController = [[AttackBoardVC alloc] initWithNibName:@"AttackBoardVC" bundle:nil];
@@ -171,14 +182,32 @@
             webAddr = @"http://www.superpowersgame.com/scripts/webPlaceUnits2.php";
         if(self.mode==3)
             webAddr = @"http://www.superpowersgame.com/scripts/webLoadUnits.php";
-        if(self.mode==0)
-            webAddr = @"http://www.superpowersgame.com/scripts/webMoveUnitsAttack.php";
-        
+		if(self.mode==0)
+			webAddr = @"http://www.superpowersgame.com/scripts/webMoveUnitsAttack.php";
+		if(self.mode==101)
+			webAddr = @"http://www.superpowersgame.com/scripts/webRefundUnits.php";
+		
         NSString *responseStr = [WebServicesFunctions getResponseFromServerUsingPost:webAddr :nameList :valueList];
-        
-        
+		NSLog(@"placeServiceFunction [%d]: %@", self.mode, responseStr);
+		
         self.successFlg=NO;
-        if([WebServicesFunctions validateStandardResponse:responseStr :self]) {
+		if(responseStr.length>20 && [@"Sorry, need more inf" isEqualToString:[responseStr substringToIndex:20]]) {
+			[ObjectiveCScripts showAlertPopup:@"Click 'View Attack Board' below." :responseStr];
+			[self refreshPage];
+			return;
+			
+		} else if([@"Refund Completed" isEqualToString:responseStr]) {
+			[self.navigationController popViewControllerAnimated:YES];
+		} else if([@"You already have an economic center on this territory" isEqualToString:responseStr]) {
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:responseStr
+															message:@""
+														   delegate:self
+												  cancelButtonTitle:@"Place Elsewhere"
+												  otherButtonTitles: @"Refund", nil];
+			alert.tag=101;
+			[alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+			//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+		} else if([WebServicesFunctions validateStandardResponse:responseStr :self]) {
             self.successFlg=YES;
            if(self.mode==5)
                 [ObjectiveCScripts showAlertPopupWithDelegate:@"Units Placed" :@"" :self];
@@ -205,7 +234,7 @@
 				//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
                 [self webServiceFunction];
             }
-        }
+		}
 
         self.activityPopup.alpha=0;
 	[self.activityIndicator stopAnimating];

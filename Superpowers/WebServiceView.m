@@ -89,6 +89,10 @@
 	self.hidden=NO;
 }
 
+-(void)start {
+	[self startWithTitle:nil];
+}
+
 -(void)stop {
 	[self.activityIndicator stopAnimating];
 	self.hidden=YES;

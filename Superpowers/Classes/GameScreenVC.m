@@ -1125,22 +1125,13 @@
         NSLog(@"+++ERROR!!: %@", responseStr);
     
 	if([components count]<=3 || ![[components objectAtIndex:0] isEqualToString:@"Superpowers"]) {
-		[ObjectiveCScripts showAlertPopup:@"Web Error" :@"Sorry, unable to reach Superpowers server. Please try back later."];
+		[ObjectiveCScripts showAlertPopup:@"Network Error" :@"Reload Map."];
         return;
     }
     NSString *gameParts = [components objectAtIndex:1];
     NSLog(@"gameParts: %@", gameParts);
- /*
-    [self.playerArray removeAllObjects];
-    NSArray *players = [[components objectAtIndex:3] componentsSeparatedByString:@"<li>"];
-    for(NSString *line in players) {
-        NSArray *items = [line componentsSeparatedByString:@"|"];
-        if([items count]>=5) {
-            [self.playerArray addObject:line];
-        }
-    }
-*/
-    NSArray *parts = [gameParts componentsSeparatedByString:@"|"];
+
+	NSArray *parts = [gameParts componentsSeparatedByString:@"|"];
     if([parts count]<7)
         return;
     self.playerStatusString = [parts objectAtIndex:1];

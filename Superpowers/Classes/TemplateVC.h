@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet CustomSegment *mainSegment;
 
 @property (strong, nonatomic) IBOutlet WebServiceView *webServiceView;
+@property (strong, nonatomic) IBOutlet UIView *popupView;
 @property (strong, nonatomic) NSMutableArray *webServiceElements;
 @property (strong, nonatomic) NSMutableArray *textFieldElements;
 @property (strong, nonatomic) NSMutableArray *mainArray;
@@ -29,5 +30,6 @@
 -(void)stopWebService;
 -(void)resignResponders;
 - (IBAction) segmentChanged: (id) sender;
+- (IBAction) xButtonPressed: (id) sender;
 
 @end

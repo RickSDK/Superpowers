@@ -34,7 +34,6 @@
 	
 	self.gameObj = [GameObj new];
 	
-	NSLog(@"+++gameInitialVC self.gameObj %d %d", self.gameObj.gameId, self.gameObj.round);
 	mapButton.enabled=NO;
 	
 	self.navigationItem.rightBarButtonItem = [ObjectiveCScripts navigationButtonWithTitle:@"Details" selector:@selector(detailsButtonClicked:) target:self];
@@ -219,16 +218,6 @@
             [ObjectiveCScripts showConfirmationPopup:@"Surrender!" :@"Are you sure you want to surrender?" :self];
 }
 
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
 -(void)detailsButtonClicked:(id)sender {
     
     if([self.gameDetailsString length]>0) {
@@ -253,16 +242,16 @@
 - (void)loadMapWebView {
 	@autoreleasepool {
     
-//        [self.playerArray removeAllObjects];
-	NSString *weblink = [NSString stringWithFormat:@"http://www.superpowersgame.com/scripts/mobileGetGameDetails.php?game_id=%d", gameId];
-	NSString *result = [WebServicesFunctions getResponseFromWeb:weblink];
-//        NSLog(@"result: %@ ", result);
-        NSArray *compCheck = [result componentsSeparatedByString:@"|"];
-        if([compCheck count]<5) {
+		NSString *weblink = [NSString stringWithFormat:@"http://www.superpowersgame.com/scripts/mobileGetGameDetails.php?game_id=%d", gameId];
+		NSString *result = [WebServicesFunctions getResponseFromWeb:weblink];
+		
+		[activityIndicator stopAnimating];
+		activityLabel.alpha=0;
+		activityPopup.alpha=0;
+
+        NSLog(@"result: %@ ", result);
+        if(result.length < 20) {
             [ObjectiveCScripts showAlertPopup:@"Error" :@"Site not responding. Try back soon"];
-            [activityIndicator stopAnimating];
-            activityLabel.alpha=0;
-            activityPopup.alpha=0;
             return;
         }
 		
@@ -277,7 +266,7 @@
 			[self.surrenderButton setTitle:@"Surrender" forState:UIControlStateNormal];
            
             self.gameDetailsString = [components objectAtIndex:0];
-			NSLog(@"gameDetailsString: %@", self.gameDetailsString);
+//			NSLog(@"gameDetailsString: %@", self.gameDetailsString);
 			
             NSArray *gameDetails = [[components objectAtIndex:0] componentsSeparatedByString:@"|"];
  //           NSArray *players = [[components objectAtIndex:1] componentsSeparatedByString:@"<li>"];
@@ -374,14 +363,6 @@
                 }
                 
             }
- //           int playerCount=0;
-  //          for(NSString *line in players) {
- //               playerCount++;
-  //              NSArray *items = [line componentsSeparatedByString:@"|"];
-   //             if([items count]>=5) {
-  //                  [self.playerArray addObject:line];
-   //             }
-  //          }
             
             if([@"training" isEqualToString:[gameDetails objectAtIndex:8]]) {
                 self.aiButton.enabled=NO;
@@ -400,10 +381,7 @@
         }
 	
         [self.mainTableView reloadData];
-	[activityIndicator stopAnimating];
-        activityLabel.alpha=0;
-        activityPopup.alpha=0;
-    
+		
     
 
 	}

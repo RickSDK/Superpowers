@@ -94,7 +94,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifierSection%dRow%d", indexPath.section, indexPath.row];
+    NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifierSection%dRow%d", (int)indexPath.section, (int)indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell==nil)
@@ -102,8 +102,8 @@
     
     NSString *playerStr= [self.playerArray objectAtIndex:indexPath.row];
     cell.textLabel.text=playerStr;
-    int nation = [self getTeamForPlayer:indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"flag%d.gif", indexPath.row+1]];
+    int nation = (int)[self getTeamForPlayer:(int)indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"flag%d.gif", (int)indexPath.row+1]];
    
     if(nation>0) {
         NSArray *components = [playerStr componentsSeparatedByString:@"|"];
@@ -131,10 +131,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    int nation = [self getTeamForPlayer:indexPath.row];
-    self.selectedNation=indexPath.row+1;
+    int nation = [self getTeamForPlayer:(int)indexPath.row];
+    self.selectedNation=(int)indexPath.row+1;
     if(nation==0)
-        [ObjectiveCScripts showConfirmationPopup:[ObjectiveCScripts getSuperpowerNameFromId:indexPath.row+1] :@"" :self];
+        [ObjectiveCScripts showConfirmationPopup:[ObjectiveCScripts getSuperpowerNameFromId:(int)indexPath.row+1] :@"" :self];
 }
 
 -(void)selectNation {

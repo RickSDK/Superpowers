@@ -20,9 +20,14 @@
 	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url
 												  cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 40];
 
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+	NSData *response=nil;
+   response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 
+	if(response.length==0) { // Try again!!!
+		[NSThread sleepForTimeInterval:1];
+		response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	}
+	NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 	
 	return responseString;
 }
@@ -35,7 +40,7 @@
 +(NSString *)getResponseFromServerUsingPost:(NSString *)weblink:(NSArray *)fieldList:(NSArray *)valueList
 {
 	if([fieldList count] != [valueList count]) {
-		return [NSString stringWithFormat:@"Invalid value list! (%d, %d) %@", [fieldList count], [valueList count], weblink];
+		return [NSString stringWithFormat:@"Invalid value list! (%d, %d) %@", (int)[fieldList count], (int)[valueList count], weblink];
 	}
 	int i=0;
 	NSMutableString *fieldStr= [NSMutableString stringWithCapacity:256];
@@ -44,7 +49,7 @@
 	
 	NSString *responseString = nil;
 	NSData *postData = [fieldStr dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-	NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+	NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
 	NSURL *url = [NSURL URLWithString:weblink];
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
 																cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30];
@@ -53,7 +58,16 @@
 	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
 	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
 	[request setHTTPBody:postData];
-		NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	NSData *response=nil;
+	
+	
+	response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	
+	if(response.length==0) { // Try again!!!
+		[NSThread sleepForTimeInterval:1];
+		response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	}
+	
 		NSString *reString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 		responseString = [NSString stringWithFormat:@"%@", reString];
 	return responseString;

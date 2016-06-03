@@ -27,6 +27,7 @@
 #import "CreateSinglePlayerGameVC.h"
 #import "ForumsVC.h"
 #import "PlayerAttackVC.h"
+#import "NewPlayersVC.h"
 
 
 @implementation MainMenuVC
@@ -169,9 +170,12 @@
 			[ObjectiveCScripts setUserDefaultValue:[NSString stringWithFormat:@"%d", self.loginObj.level] forKey:@"userRank"];
 			
 			self.chatLabel.text = self.loginObj.chatMessage;
+			[self.gamesButton setBackgroundImage:(self.loginObj.numWaiting>0)?[UIImage imageNamed:@"yellowChromeBut.png"]:[UIImage imageNamed:@"blueChromeBut.png"] forState:UIControlStateNormal];
 			
 			if(self.loginObj.level==0)
 				self.loginObj.level=1;
+			
+			self.mailButton.backgroundColor=(self.loginObj.mailFlg)?[UIColor yellowColor]:[UIColor clearColor];
 			
 			self.rankLabel.text = [self rankNameForRank:self.loginObj.level];
 			self.rankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"rank%d.gif", self.loginObj.level-1]];
@@ -191,6 +195,12 @@
 			if(self.loginObj.level>2) {
 				[self.gamesButton setTitle:@"Games" forState:UIControlStateNormal];
 				self.messageLabel.text = @"Check games twice a day!";
+			}
+			if(self.loginObj.level>2 && self.loginObj.phone.length==0) {
+				[ObjectiveCScripts showAlertPopup:@"Please add Turn Notification number" :@""];
+				ProfileVC *detailViewController = [[ProfileVC alloc] initWithNibName:@"ProfileVC" bundle:nil];
+				detailViewController.loginObj = self.loginObj;
+				[self.navigationController pushViewController:detailViewController animated:YES];
 			}
 		}
 	}
@@ -327,6 +337,12 @@
 	LeadersVC *detailViewController = [[LeadersVC alloc] initWithNibName:@"LeadersVC" bundle:nil];
     detailViewController.userRank=self.loginObj.level;
 	detailViewController.tag = (int)sender.tag;
+	[self.navigationController pushViewController:detailViewController animated:YES];
+}
+
+- (IBAction) newPlayersButtonClicked: (id) sender {
+	NewPlayersVC *detailViewController = [[NewPlayersVC alloc] initWithNibName:@"NewPlayersVC" bundle:nil];
+	detailViewController.title = @"New Players";
 	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 

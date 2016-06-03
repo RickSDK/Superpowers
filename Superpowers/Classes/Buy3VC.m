@@ -114,7 +114,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-	NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifierSection%dRow%d", indexPath.section, indexPath.row];
+	NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifierSection%dRow%d", (int)indexPath.section, (int)indexPath.row];
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
 	if(cell==nil)
@@ -126,7 +126,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.rowNumber = indexPath.row;
+    self.rowNumber = (int)indexPath.row;
     ListPickerVC *detailViewController = [[ListPickerVC alloc] initWithNibName:@"ListPickerVC" bundle:nil];
     // Pass the selected object to the new view controller.
     detailViewController.callBackViewController=self;

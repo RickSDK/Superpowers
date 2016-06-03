@@ -27,6 +27,10 @@
 
 @property (nonatomic) float version;
 
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *text_msg;
+@property (nonatomic) int numWaiting;
+
 +(LoginObj *)objectFromLine:(NSString *)line;
 
 @end

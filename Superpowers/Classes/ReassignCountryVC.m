@@ -103,7 +103,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	self.countrySelectedFlg=YES;
-	self.countrySelected=indexPath.row;
+	self.countrySelected=(int)indexPath.row;
 	[self.mainTableView reloadData];
 	self.assignButton.enabled=YES;
 }

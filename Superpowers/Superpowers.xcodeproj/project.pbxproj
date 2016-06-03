@@ -270,6 +270,11 @@
 		6BC861A216CAEEAA009DD96F /* PlaceUnitsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC861A016CAEEAA009DD96F /* PlaceUnitsVC.m */; };
 		6BC861A316CAEEAA009DD96F /* PlaceUnitsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC861A116CAEEAA009DD96F /* PlaceUnitsVC.xib */; };
 		6BC9A6121CF4D90E00604C28 /* LoginObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC9A6111CF4D90E00604C28 /* LoginObj.m */; };
+		6BC9A6161CF63D5400604C28 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9A6151CF63D5400604C28 /* mail.png */; };
+		6BC9A61A1CF63F1400604C28 /* NewPlayersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC9A6181CF63F1400604C28 /* NewPlayersVC.m */; };
+		6BC9A61B1CF63F1400604C28 /* NewPlayersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9A6191CF63F1400604C28 /* NewPlayersVC.xib */; };
+		6BC9A61E1CF65EBB00604C28 /* UserObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC9A61D1CF65EBB00604C28 /* UserObj.m */; };
+		6BC9A6211CF65FCE00604C28 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC9A6201CF65FCE00604C28 /* UserCell.m */; };
 		6BC9C7251CE3B32700C32B46 /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9C7241CE3B32700C32B46 /* blueArrowDown.png */; };
 		6BC9FA4C1CD27FFE00BC0799 /* ForumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC9FA4A1CD27FFE00BC0799 /* ForumsVC.m */; };
 		6BC9FA4D1CD27FFE00BC0799 /* ForumsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9FA4B1CD27FFE00BC0799 /* ForumsVC.xib */; };
@@ -672,6 +677,14 @@
 		6BC861A116CAEEAA009DD96F /* PlaceUnitsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceUnitsVC.xib; sourceTree = "<group>"; };
 		6BC9A6101CF4D90E00604C28 /* LoginObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginObj.h; sourceTree = "<group>"; };
 		6BC9A6111CF4D90E00604C28 /* LoginObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginObj.m; sourceTree = "<group>"; };
+		6BC9A6151CF63D5400604C28 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
+		6BC9A6171CF63F1400604C28 /* NewPlayersVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlayersVC.h; sourceTree = "<group>"; };
+		6BC9A6181CF63F1400604C28 /* NewPlayersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlayersVC.m; sourceTree = "<group>"; };
+		6BC9A6191CF63F1400604C28 /* NewPlayersVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPlayersVC.xib; sourceTree = "<group>"; };
+		6BC9A61C1CF65EBB00604C28 /* UserObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObj.h; sourceTree = "<group>"; };
+		6BC9A61D1CF65EBB00604C28 /* UserObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObj.m; sourceTree = "<group>"; };
+		6BC9A61F1CF65FCE00604C28 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		6BC9A6201CF65FCE00604C28 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		6BC9C7241CE3B32700C32B46 /* blueArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrowDown.png; sourceTree = "<group>"; };
 		6BC9FA491CD27FFE00BC0799 /* ForumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsVC.h; sourceTree = "<group>"; };
 		6BC9FA4A1CD27FFE00BC0799 /* ForumsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsVC.m; sourceTree = "<group>"; };
@@ -795,6 +808,9 @@
 				6B8B8AA41574209B000F0248 /* MainMenuVC.h */,
 				6B8B8AA51574209B000F0248 /* MainMenuVC.m */,
 				6B8B8AA61574209B000F0248 /* MainMenuVC.xib */,
+				6BC9A6171CF63F1400604C28 /* NewPlayersVC.h */,
+				6BC9A6181CF63F1400604C28 /* NewPlayersVC.m */,
+				6BC9A6191CF63F1400604C28 /* NewPlayersVC.xib */,
 				6BA44B7F174AFD3300C90ACA /* ProfileVC.h */,
 				6BA44B80174AFD3300C90ACA /* ProfileVC.m */,
 				6BA44B81174AFD3400C90ACA /* ProfileVC.xib */,
@@ -1080,6 +1096,8 @@
 				6BD774EC1CDA63B20073685E /* TreatyObj.m */,
 				6BC9A6101CF4D90E00604C28 /* LoginObj.h */,
 				6BC9A6111CF4D90E00604C28 /* LoginObj.m */,
+				6BC9A61C1CF65EBB00604C28 /* UserObj.h */,
+				6BC9A61D1CF65EBB00604C28 /* UserObj.m */,
 			);
 			name = obj;
 			sourceTree = "<group>";
@@ -1095,6 +1113,8 @@
 				6BBF7BB31717389000B1D4D6 /* GameCell.m */,
 				6BD774E81CD966D30073685E /* DiplomacyCell.h */,
 				6BD774E91CD966D30073685E /* DiplomacyCell.m */,
+				6BC9A61F1CF65FCE00604C28 /* UserCell.h */,
+				6BC9A6201CF65FCE00604C28 /* UserCell.m */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -1224,6 +1244,7 @@
 				6B1A8A82166FCC630004BAF2 /* BlueGrad.png */,
 				6BB98D841599108400CEEA5C /* step1.JPG */,
 				6B8F6F89170E05D4009763FF /* step2.JPG */,
+				6BC9A6151CF63D5400604C28 /* mail.png */,
 				6B8F6F8D170E1D94009763FF /* screenStep2.png */,
 				6BB98D98159914D500CEEA5C /* step3.JPG */,
 				6B031CC915ABBCC700DD5502 /* combatImage.png */,
@@ -1379,6 +1400,7 @@
 				6B8B8A9F1574205C000F0248 /* flag8.gif in Resources */,
 				6B8B8AA81574209B000F0248 /* MainMenuVC.xib in Resources */,
 				6B8B8AD2157428DF000F0248 /* yellowChromeBut.png in Resources */,
+				6BC9A61B1CF63F1400604C28 /* NewPlayersVC.xib in Resources */,
 				6B8B8B2F1575366C000F0248 /* LeadersVC.xib in Resources */,
 				6B6955F71C4B553D004CB475 /* Default-568h@2x.png in Resources */,
 				6B8B8B6D15754615000F0248 /* LoginVC.xib in Resources */,
@@ -1421,6 +1443,7 @@
 				6B1945BE15F6D3D50028F943 /* piece15c.gif in Resources */,
 				6B1945BF15F6D3D50028F943 /* piece15d.gif in Resources */,
 				6B1945C015F6D3D50028F943 /* piece19.gif in Resources */,
+				6BC9A6161CF63D5400604C28 /* mail.png in Resources */,
 				6B1945C115F6D3D50028F943 /* piece19b.gif in Resources */,
 				6B1945C215F6D3D50028F943 /* piece19c.gif in Resources */,
 				6B1945C315F6D3D50028F943 /* piece2.gif in Resources */,
@@ -1668,6 +1691,7 @@
 				6BB98BBA1595186D00CEEA5C /* ChatVC.m in Sources */,
 				6BB98C3A1595338000CEEA5C /* CreateGameVC.m in Sources */,
 				6BB98CB51596648800CEEA5C /* TrainingVC.m in Sources */,
+				6BC9A61E1CF65EBB00604C28 /* UserObj.m in Sources */,
 				6B69560C1C4B6F31004CB475 /* CustomButton.m in Sources */,
 				6BB98D7E15990E8E00CEEA5C /* GameBasicsVC.m in Sources */,
 				6BB98DA0159915C800CEEA5C /* PraticeGameVC.m in Sources */,
@@ -1691,6 +1715,7 @@
 				6B6956001C4B5766004CB475 /* PlayerObj.m in Sources */,
 				6B1E13C516CF246C00BE9699 /* LoadOnShipVC.m in Sources */,
 				6BEA905616DAC490003F9809 /* Board.m in Sources */,
+				6BC9A61A1CF63F1400604C28 /* NewPlayersVC.m in Sources */,
 				6BEA90C016DDA2D5003F9809 /* ComputerGoVCViewController.m in Sources */,
 				6BEA90C516DE8E7B003F9809 /* Buy3VC.m in Sources */,
 				6BEA90CA16E0387B003F9809 /* PlayerAttackVC.m in Sources */,
@@ -1709,6 +1734,7 @@
 				6BA44BAE174C46E000C90ACA /* MoveUnitsVC.m in Sources */,
 				6BA44BB71755891000C90ACA /* AttackBoardVC.m in Sources */,
 				6B94998317790C6E00B34FF9 /* ChooseNationVC.m in Sources */,
+				6BC9A6211CF65FCE00604C28 /* UserCell.m in Sources */,
 				6B949AD317823D1500B34FF9 /* SoundsLib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

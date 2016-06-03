@@ -54,9 +54,8 @@
                     <rect key="frame" x="54" y="392" width="213" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Ranked Matchmaking" backgroundImage="yellowChromeBut.png">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Ranked Matchmaking" backgroundImage="blueChromeBut.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="leagueButtonPressed:" destination="-1" eventType="touchDown" id="35"/>
@@ -114,7 +113,7 @@
         </view>
     </objects>
     <resources>
-        <image name="yellowChromeBut.png" width="400" height="100"/>
+        <image name="blueChromeBut.png" width="400" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

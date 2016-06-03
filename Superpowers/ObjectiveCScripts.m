@@ -270,7 +270,7 @@
 	
 	UIImage *newImg = [ObjectiveCScripts imageWithImage:img newSize:newSize];
 	NSData *imgData = UIImageJPEGRepresentation(newImg, 1.0);
-	return [NSString base64StringFromData:imgData length:[imgData length]];
+	return [NSString base64StringFromData:imgData length:(int)[imgData length]];
 }
 
 +(void)showActionSheet:(id)delegate view:(UIView *)view title:(NSString *)title buttons:(NSArray *)buttons
@@ -631,7 +631,7 @@ int randomSort(id obj1, id obj2, void *context) {
 +(UIBarButtonItem *)navigationButtonWithTitle:(NSString *)title selector:(SEL)selector target:(id)target
 {
 	float fontSize=14;
-	int width=40+title.length*7;
+	int width=40+(int)title.length*7;
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	[button setBackgroundImage:[UIImage imageNamed:@"yellowChromeBut.png"] forState:UIControlStateNormal];
 	[button setTitle:title forState:UIControlStateNormal];
