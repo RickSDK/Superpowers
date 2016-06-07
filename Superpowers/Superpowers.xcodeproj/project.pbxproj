@@ -218,14 +218,19 @@
 		6BA4AA921735AD18006022E1 /* RulesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA4AA901735AD18006022E1 /* RulesVC.xib */; };
 		6BA6671B16CC4D490007A06C /* UnitsForPlacementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6671916CC4D490007A06C /* UnitsForPlacementVC.m */; };
 		6BA6671C16CC4D490007A06C /* UnitsForPlacementVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6671A16CC4D490007A06C /* UnitsForPlacementVC.xib */; };
-		6BB3F7E21A5886110034C17F /* income1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB3F7DE1A5886110034C17F /* income1.png */; };
-		6BB3F7E31A5886110034C17F /* income2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB3F7DF1A5886110034C17F /* income2.png */; };
-		6BB3F7E41A5886110034C17F /* income3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB3F7E01A5886110034C17F /* income3.png */; };
-		6BB3F7E51A5886110034C17F /* income4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB3F7E11A5886110034C17F /* income4.png */; };
+		6BB401761D063C6800DAC70D /* GameChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB401741D063C6800DAC70D /* GameChatVC.m */; };
+		6BB401771D063C6800DAC70D /* GameChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BB401751D063C6800DAC70D /* GameChatVC.xib */; };
 		6BB55B7F1CEE4B2700346276 /* ReassignCountryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB55B7D1CEE4B2700346276 /* ReassignCountryVC.m */; };
 		6BB55B801CEE4B2700346276 /* ReassignCountryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BB55B7E1CEE4B2700346276 /* ReassignCountryVC.xib */; };
 		6BB68BC91CDD165D00D71701 /* attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB68BC81CDD165D00D71701 /* attack.png */; };
 		6BB68BCB1CDD1D4000D71701 /* purchase.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB68BCA1CDD1D4000D71701 /* purchase.png */; };
+		6BB809A61D02069200ADAD99 /* HistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB809A41D02069200ADAD99 /* HistoryVC.m */; };
+		6BB809A71D02069200ADAD99 /* HistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BB809A51D02069200ADAD99 /* HistoryVC.xib */; };
+		6BB809AC1D0363B600ADAD99 /* income1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB809A81D0363B600ADAD99 /* income1.png */; };
+		6BB809AD1D0363B600ADAD99 /* income2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB809A91D0363B600ADAD99 /* income2.png */; };
+		6BB809AE1D0363B600ADAD99 /* income3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB809AA1D0363B600ADAD99 /* income3.png */; };
+		6BB809AF1D0363B600ADAD99 /* income4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB809AB1D0363B600ADAD99 /* income4.png */; };
+		6BB809B11D03A74C00ADAD99 /* superpowers.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB809B01D03A74C00ADAD99 /* superpowers.png */; };
 		6BB98BBA1595186D00CEEA5C /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB98BB81595186D00CEEA5C /* ChatVC.m */; };
 		6BB98BBB1595186D00CEEA5C /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BB98BB91595186D00CEEA5C /* ChatVC.xib */; };
 		6BB98C3A1595338000CEEA5C /* CreateGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB98C381595338000CEEA5C /* CreateGameVC.m */; };
@@ -608,15 +613,22 @@
 		6BA6671816CC4D490007A06C /* UnitsForPlacementVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsForPlacementVC.h; sourceTree = "<group>"; };
 		6BA6671916CC4D490007A06C /* UnitsForPlacementVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsForPlacementVC.m; sourceTree = "<group>"; };
 		6BA6671A16CC4D490007A06C /* UnitsForPlacementVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnitsForPlacementVC.xib; sourceTree = "<group>"; };
-		6BB3F7DE1A5886110034C17F /* income1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income1.png; sourceTree = "<group>"; };
-		6BB3F7DF1A5886110034C17F /* income2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income2.png; sourceTree = "<group>"; };
-		6BB3F7E01A5886110034C17F /* income3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income3.png; sourceTree = "<group>"; };
-		6BB3F7E11A5886110034C17F /* income4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income4.png; sourceTree = "<group>"; };
+		6BB401731D063C6800DAC70D /* GameChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameChatVC.h; sourceTree = "<group>"; };
+		6BB401741D063C6800DAC70D /* GameChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameChatVC.m; sourceTree = "<group>"; };
+		6BB401751D063C6800DAC70D /* GameChatVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameChatVC.xib; sourceTree = "<group>"; };
 		6BB55B7C1CEE4B2700346276 /* ReassignCountryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReassignCountryVC.h; sourceTree = "<group>"; };
 		6BB55B7D1CEE4B2700346276 /* ReassignCountryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReassignCountryVC.m; sourceTree = "<group>"; };
 		6BB55B7E1CEE4B2700346276 /* ReassignCountryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReassignCountryVC.xib; sourceTree = "<group>"; };
 		6BB68BC81CDD165D00D71701 /* attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attack.png; sourceTree = "<group>"; };
 		6BB68BCA1CDD1D4000D71701 /* purchase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase.png; sourceTree = "<group>"; };
+		6BB809A31D02069200ADAD99 /* HistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryVC.h; sourceTree = "<group>"; };
+		6BB809A41D02069200ADAD99 /* HistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryVC.m; sourceTree = "<group>"; };
+		6BB809A51D02069200ADAD99 /* HistoryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryVC.xib; sourceTree = "<group>"; };
+		6BB809A81D0363B600ADAD99 /* income1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income1.png; sourceTree = "<group>"; };
+		6BB809A91D0363B600ADAD99 /* income2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income2.png; sourceTree = "<group>"; };
+		6BB809AA1D0363B600ADAD99 /* income3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income3.png; sourceTree = "<group>"; };
+		6BB809AB1D0363B600ADAD99 /* income4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income4.png; sourceTree = "<group>"; };
+		6BB809B01D03A74C00ADAD99 /* superpowers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = superpowers.png; sourceTree = "<group>"; };
 		6BB98BB71595186D00CEEA5C /* ChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatVC.h; sourceTree = "<group>"; };
 		6BB98BB81595186D00CEEA5C /* ChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatVC.m; sourceTree = "<group>"; };
 		6BB98BB91595186D00CEEA5C /* ChatVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatVC.xib; sourceTree = "<group>"; };
@@ -829,6 +841,9 @@
 				6BB98BB71595186D00CEEA5C /* ChatVC.h */,
 				6BB98BB81595186D00CEEA5C /* ChatVC.m */,
 				6BB98BB91595186D00CEEA5C /* ChatVC.xib */,
+				6BB401731D063C6800DAC70D /* GameChatVC.h */,
+				6BB401741D063C6800DAC70D /* GameChatVC.m */,
+				6BB401751D063C6800DAC70D /* GameChatVC.xib */,
 				6B8B8B6615754615000F0248 /* LoginVC.h */,
 				6B8B8B6715754615000F0248 /* LoginVC.m */,
 				6B8B8B6815754615000F0248 /* LoginVC.xib */,
@@ -868,6 +883,9 @@
 				6B12159716C8168E00767280 /* gameInitialVC.h */,
 				6B12159816C8168E00767280 /* gameInitialVC.m */,
 				6B12159916C8168E00767280 /* gameInitialVC.xib */,
+				6BB809A31D02069200ADAD99 /* HistoryVC.h */,
+				6BB809A41D02069200ADAD99 /* HistoryVC.m */,
+				6BB809A51D02069200ADAD99 /* HistoryVC.xib */,
 				6BC8618B16C99A86009DD96F /* GameDetailsVC.h */,
 				6BC8618C16C99A86009DD96F /* GameDetailsVC.m */,
 				6BC8618D16C99A86009DD96F /* GameDetailsVC.xib */,
@@ -1178,10 +1196,10 @@
 				6B8B8A931574205C000F0248 /* flag7.gif */,
 				6B8B8A941574205C000F0248 /* flag8.gif */,
 				6BEA905B16DC210B003F9809 /* flag99.gif */,
-				6BB3F7DE1A5886110034C17F /* income1.png */,
-				6BB3F7DF1A5886110034C17F /* income2.png */,
-				6BB3F7E01A5886110034C17F /* income3.png */,
-				6BB3F7E11A5886110034C17F /* income4.png */,
+				6BB809A81D0363B600ADAD99 /* income1.png */,
+				6BB809A91D0363B600ADAD99 /* income2.png */,
+				6BB809AA1D0363B600ADAD99 /* income3.png */,
+				6BB809AB1D0363B600ADAD99 /* income4.png */,
 				6BEA905916DC1EED003F9809 /* bloo.jpg */,
 				6BEA90BB16DD8F3D003F9809 /* bloo.png */,
 				6BEA905D16DC5A97003F9809 /* econ.gif */,
@@ -1239,6 +1257,7 @@
 				6BB98C8B15965EDC00CEEA5C /* greenGradient.png */,
 				6BC9C7241CE3B32700C32B46 /* blueArrowDown.png */,
 				6B79ADE7170296930078F6DD /* nuke.gif */,
+				6BB809B01D03A74C00ADAD99 /* superpowers.png */,
 				6B79ADE8170296930078F6DD /* satellite.JPG */,
 				6B8F6F8B170E1D8E009763FF /* sat.png */,
 				6B1A8A82166FCC630004BAF2 /* BlueGrad.png */,
@@ -1407,7 +1426,6 @@
 				6B8B8B6F15754615000F0248 /* CreateNewAccount.xib in Resources */,
 				6B8B8BA5157548C4000F0248 /* metalPlate.png in Resources */,
 				6B8B8BA81575491B000F0248 /* activityPopup.png in Resources */,
-				6BB3F7E51A5886110034C17F /* income4.png in Resources */,
 				6B8B8BAA1575495A000F0248 /* activityBG.png in Resources */,
 				6B8B8BAD157549B1000F0248 /* wb.png in Resources */,
 				6B8B8BF515757390000F0248 /* GamesVC.xib in Resources */,
@@ -1416,7 +1434,6 @@
 				6BB98BBB1595186D00CEEA5C /* ChatVC.xib in Resources */,
 				6BB98C3B1595338000CEEA5C /* CreateGameVC.xib in Resources */,
 				6BB98C8C15965EDC00CEEA5C /* greenGradient.png in Resources */,
-				6BB3F7E31A5886110034C17F /* income2.png in Resources */,
 				6BB98CB61596648800CEEA5C /* TrainingVC.xib in Resources */,
 				6BB98D7F15990E8E00CEEA5C /* GameBasicsVC.xib in Resources */,
 				6BB98D861599108400CEEA5C /* step1.JPG in Resources */,
@@ -1430,6 +1447,7 @@
 				6BE5C769184C40ED0028CA26 /* Icon58.png in Resources */,
 				6BB98DE915995B6000CEEA5C /* Icon.png in Resources */,
 				6B031CC815ABB74100DD5502 /* Default.png in Resources */,
+				6BB401771D063C6800DAC70D /* GameChatVC.xib in Resources */,
 				6B031CCA15ABBCC700DD5502 /* combatImage.png in Resources */,
 				6B1945B615F6D3D50028F943 /* piece1.gif in Resources */,
 				6B1945B715F6D3D50028F943 /* piece10.gif in Resources */,
@@ -1486,7 +1504,6 @@
 				6B1945E415F6D3D50028F943 /* piece5.gif in Resources */,
 				6B1945E515F6D3D50028F943 /* piece50.gif in Resources */,
 				6B1945E615F6D3D50028F943 /* piece51.gif in Resources */,
-				6BB3F7E21A5886110034C17F /* income1.png in Resources */,
 				6B1945E715F6D3D50028F943 /* piece52.gif in Resources */,
 				6B1945E815F6D3D50028F943 /* piece53.gif in Resources */,
 				6B1945E915F6D3D50028F943 /* piece54.gif in Resources */,
@@ -1502,6 +1519,7 @@
 				6B1945F315F6D3D50028F943 /* piece63.gif in Resources */,
 				6B1945F415F6D3D50028F943 /* piece64.gif in Resources */,
 				6B1945F515F6D3D50028F943 /* piece65.gif in Resources */,
+				6BB809A71D02069200ADAD99 /* HistoryVC.xib in Resources */,
 				6B1945F615F6D3D50028F943 /* piece66.gif in Resources */,
 				6B1945F715F6D3D50028F943 /* piece67.gif in Resources */,
 				6B1945F815F6D3D50028F943 /* piece68.gif in Resources */,
@@ -1510,12 +1528,14 @@
 				6B1945FB15F6D3D50028F943 /* piece8.gif in Resources */,
 				6B1945FC15F6D3D50028F943 /* piece9.gif in Resources */,
 				6BE5C763184C408B0028CA26 /* Icon76.png in Resources */,
+				6BB809AC1D0363B600ADAD99 /* income1.png in Resources */,
 				6BC75EA81602A47F006979EC /* UnitsVC.xib in Resources */,
 				6B1A8A83166FCC630004BAF2 /* BlueGrad.png in Resources */,
 				6B7BA8FE166FCE940047B556 /* redChromeBut.png in Resources */,
 				6BC5CD9D16BB613300EC9060 /* CreateNewGameVC.xib in Resources */,
 				6BC5CDA216BB623700EC9060 /* purpleChromeBut.png in Resources */,
 				6BB68BCB1CDD1D4000D71701 /* purchase.png in Resources */,
+				6BB809B11D03A74C00ADAD99 /* superpowers.png in Resources */,
 				6BC5CDA416BB623D00EC9060 /* blueChromeBut.png in Resources */,
 				6BC5CDA916BB630400EC9060 /* CreateSinglePlayerGameVC.xib in Resources */,
 				6BC5CDAE16BB68AA00EC9060 /* CreateMultiPlayerGameVC.xib in Resources */,
@@ -1523,6 +1543,7 @@
 				6B1215A016C822C700767280 /* GameViewsVC.xib in Resources */,
 				6BC8618F16C99A86009DD96F /* GameDetailsVC.xib in Resources */,
 				6BC8619416C9CB94009DD96F /* PurchaseVC.xib in Resources */,
+				6BB809AE1D0363B600ADAD99 /* income3.png in Resources */,
 				6BC8619916CAEBAC009DD96F /* AttackVC.xib in Resources */,
 				6BC8619E16CAED54009DD96F /* MovementVC.xib in Resources */,
 				6BC861A316CAEEAA009DD96F /* PlaceUnitsVC.xib in Resources */,
@@ -1550,6 +1571,7 @@
 				6BEA909716DC5AA0003F9809 /* flag_ex5.gif in Resources */,
 				6BEA909816DC5AA0003F9809 /* flag_ex6.gif in Resources */,
 				6BEA909916DC5AA0003F9809 /* flag_ex7.gif in Resources */,
+				6BB809AF1D0363B600ADAD99 /* income4.png in Resources */,
 				6BEA909A16DC5AA0003F9809 /* flag_ex8.gif in Resources */,
 				6BEA909B16DC5AA0003F9809 /* flag_nuke1.gif in Resources */,
 				6BEA909C16DC5AA0003F9809 /* flag_nuke2.gif in Resources */,
@@ -1570,6 +1592,7 @@
 				6BEA90AA16DC5AA0003F9809 /* flagg8.gif in Resources */,
 				6BEA90AB16DC5AA0003F9809 /* flagl1.gif in Resources */,
 				6BEA90AC16DC5AA0003F9809 /* flagl2.gif in Resources */,
+				6BB809AD1D0363B600ADAD99 /* income2.png in Resources */,
 				6BEA90AD16DC5AA0003F9809 /* flagl3.gif in Resources */,
 				6BC9FA4D1CD27FFE00BC0799 /* ForumsVC.xib in Resources */,
 				6BEA90AE16DC5AA0003F9809 /* flagl4.gif in Resources */,
@@ -1648,7 +1671,6 @@
 				6BA44BA4174BF75700C90ACA /* profileBG.PNG in Resources */,
 				6BA44BA6174BF75D00C90ACA /* detailsBG.PNG in Resources */,
 				6BA44BA9174C26DD00C90ACA /* steps.PNG in Resources */,
-				6BB3F7E41A5886110034C17F /* income3.png in Resources */,
 				6BA44BAA174C26DD00C90ACA /* basic.PNG in Resources */,
 				6BA44BAF174C46E000C90ACA /* MoveUnitsVC.xib in Resources */,
 				6BA44BB81755891000C90ACA /* AttackBoardVC.xib in Resources */,
@@ -1676,6 +1698,7 @@
 				6B8B8B6E15754615000F0248 /* CreateNewAccount.m in Sources */,
 				6B8B8B7F157546D4000F0248 /* Appirater.m in Sources */,
 				6B8B8B80157546D4000F0248 /* UIColor+ATTColor.m in Sources */,
+				6BB401761D063C6800DAC70D /* GameChatVC.m in Sources */,
 				6B8B8B81157546D4000F0248 /* NSString+ATTString.m in Sources */,
 				6B8B8B82157546D4000F0248 /* NSData+ATTData.m in Sources */,
 				6BD774EA1CD966D30073685E /* DiplomacyCell.m in Sources */,
@@ -1730,6 +1753,7 @@
 				6BA4AA911735AD18006022E1 /* RulesVC.m in Sources */,
 				6B6956271C51E32B004CB475 /* CustomSegment.m in Sources */,
 				6BA44B82174AFD3400C90ACA /* ProfileVC.m in Sources */,
+				6BB809A61D02069200ADAD99 /* HistoryVC.m in Sources */,
 				6BA44B87174B011900C90ACA /* BugReportVC.m in Sources */,
 				6BA44BAE174C46E000C90ACA /* MoveUnitsVC.m in Sources */,
 				6BA44BB71755891000C90ACA /* AttackBoardVC.m in Sources */,

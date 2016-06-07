@@ -16,6 +16,8 @@
 #import "PlayerCell.h"
 #import "ChooseNationVC.h"
 #import "PlayerObj.h"
+#import "HistoryVC.h"
+#import "GameChatVC.h"
 
 @interface gameInitialVC ()
 
@@ -35,6 +37,7 @@
 	self.gameObj = [GameObj new];
 	
 	mapButton.enabled=NO;
+	self.accountSitButton.enabled=NO;
 	
 	self.navigationItem.rightBarButtonItem = [ObjectiveCScripts navigationButtonWithTitle:@"Details" selector:@selector(detailsButtonClicked:) target:self];
 	
@@ -47,7 +50,12 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	
+	if([ObjectiveCScripts getUserDefaultValue:@"AccountSitUsername"].length>0)
+		[self resetLogin];
+	
 	[self loadMainView];
+	
 }
 
 
@@ -69,7 +77,9 @@
     [self gotoView:3];
 }
 - (IBAction) chatButtonClicked: (id) sender {
-    [self gotoView:4];
+	GameChatVC *detailViewController = [[GameChatVC alloc] initWithNibName:@"GameChatVC" bundle:nil];
+	detailViewController.gameObj=self.gameObj;
+	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 - (IBAction) mapButtonClicked: (id) sender {
@@ -144,11 +154,54 @@
 	}
 }
 
+-(void)resetLogin {
+	NSLog(@"Resetting Login");
+	NSString *username = [ObjectiveCScripts getUserDefaultValue:@"AccountSitUsername"];
+	[ObjectiveCScripts setUserDefaultValue:@"" forKey:@"AccountSitUsername"];
+	[ObjectiveCScripts setUserDefaultValue:username forKey:@"userName"];
+	
+	NSArray *nameList = [NSArray arrayWithObjects:@"userName", nil];
+	NSArray *valueList = [NSArray arrayWithObjects:username, nil];
+	NSString *response = [WebServicesFunctions getResponseFromServerUsingPost:@"http://www.superpowersgame.com/scripts/mobileForceLogin.php":nameList:valueList];
+	NSLog(@"%@", response);
+}
 
+- (void)accountSit {
+	@autoreleasepool {
+		NSString *username = [ObjectiveCScripts getUserDefaultValue:@"userName"];
+		[ObjectiveCScripts setUserDefaultValue:username forKey:@"AccountSitUsername"];
+		[ObjectiveCScripts setUserDefaultValue:self.gameObj.turnName forKey:@"userName"];
+		
+		NSArray *nameList = [NSArray arrayWithObjects:@"userName", nil];
+		NSArray *valueList = [NSArray arrayWithObjects:self.gameObj.turnName, nil];
+		NSString *response = [WebServicesFunctions getResponseFromServerUsingPost:@"http://www.superpowersgame.com/scripts/mobileForceLogin.php":nameList:valueList];
+
+		self.buttonNumber=12;
+		[ObjectiveCScripts showAlertPopupWithDelegate:response :@"" :self];
+		
+	}
+}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(self.buttonNumber==3) {
-        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
-    }
+	if(self.buttonNumber==12) {
+		GameScreenVC *detailViewController = [[GameScreenVC alloc] initWithNibName:@"GameScreenVC" bundle:nil];
+		detailViewController.gameId = gameId;
+		detailViewController.gameObj=self.gameObj;
+		detailViewController.gameDetailsString = self.gameDetailsString;
+		detailViewController.playerTurn=self.playerTurn;
+		[self.navigationController pushViewController:detailViewController animated:YES];
+		return;
+	}
+
+	if(self.buttonNumber==11) {
+		if(alertView.cancelButtonIndex != buttonIndex) {
+			self.accountSitButton.enabled=NO;
+			[self performSelectorInBackground:@selector(accountSit) withObject:nil];
+		}
+		return;
+	}
+	if(self.buttonNumber==3) {
+		[self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+	}
 
     if(buttonIndex==1) {
         if(self.buttonNumber==1) {
@@ -273,6 +326,8 @@
             int userTurn=0;
             if([gameDetails count]>24) {
                 self.cancelGameFlg = [gameDetails objectAtIndex:24];
+				self.gameObj.turnName = [gameDetails objectAtIndex:25];
+				self.accountSitButton.enabled = [@"Y" isEqualToString:[gameDetails objectAtIndex:26]];
                 self.skipTurnFlg = [gameDetails objectAtIndex:22];
                 if([@"Y" isEqualToString:self.skipTurnFlg]) {
 					[ObjectiveCScripts addColorToButton:self.aiButton color:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
@@ -440,6 +495,32 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 35;
 }
+
+- (IBAction) accountSitButtonClicked: (id) sender {
+	self.buttonNumber=11;
+	[ObjectiveCScripts showConfirmationPopup:@"Account Sit?" :[NSString stringWithFormat:@"Take %@'s turn?", self.gameObj.turnName] :self];
+}
+
+
+- (IBAction) infoButtonClicked: (id) sender {
+	[ObjectiveCScripts showAlertPopup:@"Account Sit" :@"Once an ally's timer reaches 12 hours, you can take their turn for them."];
+}
+
+- (IBAction) statsButtonClicked: (id) sender {
+	GameViewsVC *detailViewController = [[GameViewsVC alloc] initWithNibName:@"GameViewsVC" bundle:nil];
+	detailViewController.gameName = self.gameObj.name;
+	detailViewController.gameId = gameId;
+	detailViewController.screenNum = 12;
+	[self.navigationController pushViewController:detailViewController animated:YES];
+}
+- (IBAction) historyButtonClicked: (id) sender {
+	HistoryVC *detailViewController = [[HistoryVC alloc] initWithNibName:@"HistoryVC" bundle:nil];
+	detailViewController.title = self.gameObj.name;
+	detailViewController.gameId = gameId;
+	[self.navigationController pushViewController:detailViewController animated:YES];
+}
+
+
 
 
 

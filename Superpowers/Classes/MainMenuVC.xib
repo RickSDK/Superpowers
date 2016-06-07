@@ -13,10 +13,14 @@
                 <outlet property="chatLabel" destination="66" id="68"/>
                 <outlet property="chatView" destination="dSY-Mv-PgQ" id="FYd-gj-kna"/>
                 <outlet property="gamesButton" destination="11" id="56"/>
+                <outlet property="hideVideoButton" destination="rt2-hy-ObV" id="W2m-Zh-iy1"/>
                 <outlet property="leadersButton" destination="UNL-c7-uLy" id="iRc-0j-NvN"/>
+                <outlet property="loginView" destination="iKa-oR-i1t" id="VWn-K7-gNE"/>
                 <outlet property="mailButton" destination="Rll-0g-lsX" id="NbY-lp-xbG"/>
+                <outlet property="mainWebView" destination="yMn-3c-8CY" id="3mL-N1-Xos"/>
                 <outlet property="matchMakingButton" destination="ijZ-3m-DnS" id="K7h-nq-dgw"/>
                 <outlet property="messageLabel" destination="VJU-UF-9oy" id="FCg-o5-LLk"/>
+                <outlet property="nPlayersButton" destination="jSs-di-mXc" id="ZDI-NZ-sN6"/>
                 <outlet property="popupView" destination="tb0-Sq-vFk" id="o0c-Bx-tHb"/>
                 <outlet property="profileButton" destination="bxP-gu-0Ji" id="bdk-Yn-lrn"/>
                 <outlet property="profileView" destination="6ha-Ak-rma" id="ZV9-oT-KwN"/>
@@ -291,6 +295,61 @@
                         <action selector="leadersButtonClicked:" destination="-1" eventType="touchDown" id="Oa2-Tc-fX3"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jSs-di-mXc">
+                    <rect key="frame" x="162" y="305" width="158" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <state key="normal" title="Newest Players" backgroundImage="blueChromeBut.png">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="newPlayersButtonClicked:" destination="-1" eventType="touchDown" id="Ukp-uM-71j"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" id="iKa-oR-i1t">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.jpg" id="OkB-qS-pKb">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="superpowers.png" id="pHu-Fe-wHW">
+                            <rect key="frame" x="40" y="154" width="240" height="82"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EuX-3k-VQE">
+                            <rect key="frame" x="40" y="121" width="240" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CJx-ic-eYa">
+                            <rect key="frame" x="81" y="362" width="159" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <state key="normal" title="Replay Video" backgroundImage="redChromeBut.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="replayButtonClicked:" destination="-1" eventType="touchDown" id="m57-Wf-DDD"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rt2-hy-ObV">
+                            <rect key="frame" x="149" y="362" width="163" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            <state key="normal" title="Hide Video">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="hideVideoButtonClicked:" destination="-1" eventType="touchDown" id="6mp-KZ-386"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <view contentMode="scaleToFill" id="tb0-Sq-vFk">
                     <rect key="frame" x="40" y="70" width="232" height="240"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -339,17 +398,11 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jSs-di-mXc">
-                    <rect key="frame" x="162" y="305" width="158" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <state key="normal" title="Newest Players" backgroundImage="blueChromeBut.png">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="newPlayersButtonClicked:" destination="-1" eventType="touchDown" id="Ukp-uM-71j"/>
-                    </connections>
-                </button>
+                <webView contentMode="scaleToFill" id="yMn-3c-8CY">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -362,7 +415,9 @@
         <image name="blueChromeBut.png" width="400" height="100"/>
         <image name="mail.png" width="100" height="100"/>
         <image name="rank0.gif" width="65" height="48"/>
+        <image name="redChromeBut.png" width="400" height="100"/>
         <image name="start_screen.JPG" width="320" height="483"/>
+        <image name="superpowers.png" width="1000" height="242"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

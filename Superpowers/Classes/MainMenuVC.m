@@ -28,6 +28,8 @@
 #import "ForumsVC.h"
 #import "PlayerAttackVC.h"
 #import "NewPlayersVC.h"
+#import <AVFoundation/AVFoundation.h>
+
 
 
 @implementation MainMenuVC
@@ -75,7 +77,6 @@
 	
 	if([userName length]>0) {
 		[activityIndicator startAnimating];
-		usernameLabel.text = [ObjectiveCScripts getUserDefaultValue:@"userName"];
 	} else {
 		usernameLabel.text = @"Log In";
 		self.rankLabel.text = @"New Recruit";
@@ -85,13 +86,6 @@
 		self.profileButton.enabled=NO;
 		self.mailButton.enabled=NO;
 		self.bugButton.enabled=NO;
-		[self logoDisolve];
-	}
-	
-	
-	if([[ObjectiveCScripts getUserDefaultValue:@"init"] length]==0) {
-		[ObjectiveCScripts showAlertPopup:@"Notice" :@"Superpowers is a high-strategy, thinking person's game and not fast paced. You generally take just one turn per day. Enjoy!"];
-		[ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"init"];
 	}
 
 	if(showDisolve) {
@@ -101,12 +95,31 @@
 		[self logoDisolve];
 	}
 
+	self.mainWebView.hidden=YES;
+	self.hideVideoButton.hidden=YES;
+	if([[ObjectiveCScripts getUserDefaultValue:@"initVideo"] length]==0) {
+		[ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"initVideo"];
+		[self playVideo];
+	}
+
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+	[super viewDidDisappear:animated];
+	self.mainWebView.hidden=YES;
+	self.hideVideoButton.hidden=YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
+	if([ObjectiveCScripts getUserDefaultValue:@"AccountSitUsername"].length>0)
+		[self resetLogin];
+
+	self.loginView.hidden=NO;
 	if([ObjectiveCScripts getUserDefaultValue:@"userName"].length>0) {
+		usernameLabel.text = [ObjectiveCScripts getUserDefaultValue:@"userName"];
+		self.loginView.hidden=YES;
 		self.loginObj.level = [[ObjectiveCScripts getUserDefaultValue:@"userRank"] intValue];
 		[self performSelectorInBackground:@selector(checkWebLogin) withObject:nil];
 	}
@@ -156,6 +169,19 @@
 	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 
+-(void)resetLogin {
+	NSLog(@"Resetting Login");
+	NSString *username = [ObjectiveCScripts getUserDefaultValue:@"AccountSitUsername"];
+	[ObjectiveCScripts setUserDefaultValue:@"" forKey:@"AccountSitUsername"];
+	[ObjectiveCScripts setUserDefaultValue:username forKey:@"userName"];
+	
+	NSArray *nameList = [NSArray arrayWithObjects:@"userName", nil];
+	NSArray *valueList = [NSArray arrayWithObjects:username, nil];
+	NSString *response = [WebServicesFunctions getResponseFromServerUsingPost:@"http://www.superpowersgame.com/scripts/mobileForceLogin.php":nameList:valueList];
+	NSLog(@"%@", response);
+}
+
+
 
 -(void)checkWebLogin
 {
@@ -187,6 +213,7 @@
 			
 			self.matchMakingButton.hidden=self.loginObj.level<=2;
 			self.chatView.hidden=self.loginObj.level<=2;
+			self.nPlayersButton.hidden=self.loginObj.level<=2;
 			
 			if(self.loginObj.level==2) {
 				[self.gamesButton setTitle:@"Real Game" forState:UIControlStateNormal];
@@ -416,6 +443,26 @@
 
 - (IBAction) rulebookButtonClicked: (id) sender {
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.superpowersgame.com/docs/manual.pdf"]];
+}
+
+- (IBAction) replayButtonClicked: (id) sender {
+	[self playVideo];
+}
+
+- (IBAction) hideVideoButtonClicked: (id) sender {
+	self.mainWebView.hidden=YES;
+}
+
+-(void)playVideo {
+	if([ObjectiveCScripts screenWidth]>320) {
+		self.mainWebView.hidden=NO;
+		self.hideVideoButton.hidden=NO;
+	}
+
+	NSURL *url = [NSURL URLWithString:@"https://youtu.be/PS1MBaPTEO4?rel=0&autoplay=1"];
+	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+	self.mainWebView.mediaPlaybackRequiresUserAction = NO;
+	[self.mainWebView loadRequest:requestObj];
 }
 
 

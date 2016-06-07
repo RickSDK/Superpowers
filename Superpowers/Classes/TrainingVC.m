@@ -67,6 +67,10 @@
 
 - (IBAction) practiceButtonClicked: (id) sender
 {
+	if([ObjectiveCScripts getUserDefaultValue:@"videoWatchedFlg"].length==0) {
+		[ObjectiveCScripts showAlertPopup:@"Watch the 'Basic Training' video under Game Rules first.":@""];
+		return;
+	}
 	activityPopup.alpha=1;
 	activityLabel.alpha=1;
 	[activityIndicator startAnimating];

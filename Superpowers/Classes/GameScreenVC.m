@@ -26,6 +26,7 @@
 #import "ChooseNationVC.h"
 #import "DiplomacyVC.h"
 #import "ReassignCountryVC.h"
+#import "GameChatVC.h"
 
 
 
@@ -330,7 +331,11 @@
 }
 - (IBAction) chatButtonClicked: (id) sender {
 	self.nChatView.hidden=YES;
-    [self gotoView:4];
+	GameChatVC *detailViewController = [[GameChatVC alloc] initWithNibName:@"GameChatVC" bundle:nil];
+	detailViewController.gameObj=self.gameObj;
+	[self.navigationController pushViewController:detailViewController animated:YES];
+
+//    [self gotoView:4];
 }
 - (IBAction) showPurchasesButtonClicked: (id) sender {
     [self gotoView:5];

@@ -49,6 +49,8 @@
 - (IBAction) emailButtonClicked: (id) sender;
 - (IBAction) rulebookButtonClicked: (id) sender;
 - (IBAction) newPlayersButtonClicked: (id) sender;
+- (IBAction) replayButtonClicked: (id) sender;
+- (IBAction) hideVideoButtonClicked: (id) sender;
 
 @property (nonatomic) BOOL showDisolve;
 @property (nonatomic) BOOL screenLock;
@@ -56,10 +58,14 @@
 @property (nonatomic, strong) UIImageView *titleScreen;
 @property (nonatomic, strong) UIImageView *mapImg;
 @property (nonatomic, strong) UILabel *usernameLabel;
+@property (nonatomic, strong) IBOutlet UIView *loginView;
+@property (nonatomic, strong) IBOutlet UIButton *hideVideoButton;
+@property (nonatomic, strong) IBOutlet UIWebView *mainWebView;
 @property (nonatomic, strong) IBOutlet UILabel *rankLabel;
 @property (nonatomic, strong) IBOutlet UILabel *messageLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *rankImageView;
 @property (nonatomic, strong) IBOutlet UIButton *matchMakingButton;
+@property (nonatomic, strong) IBOutlet UIButton *nPlayersButton;
 @property (nonatomic, strong) IBOutlet UIView *chatView;
 @property (nonatomic, strong) IBOutlet UIView *profileView;
 @property (nonatomic, strong) IBOutlet UIView *popupView;

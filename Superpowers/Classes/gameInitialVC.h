@@ -49,6 +49,10 @@
 - (IBAction) mapButtonClicked: (id) sender;
 - (IBAction) aiButtonClicked: (id) sender;
 - (IBAction) surrenderButtonClicked: (id) sender;
+- (IBAction) statsButtonClicked: (id) sender;
+- (IBAction) historyButtonClicked: (id) sender;
+- (IBAction) accountSitButtonClicked: (id) sender;
+- (IBAction) infoButtonClicked: (id) sender;
 
 @property (atomic, copy) NSString *gameDetailsString;
 @property (atomic, copy) NSString *gameStatus;
@@ -66,6 +70,7 @@
 
 @property (atomic, strong) UILabel *roundLabel;
 @property (atomic, strong) UIActivityIndicatorView *activityIndicator;
+@property (atomic, strong) IBOutlet UIButton *accountSitButton;
 @property (atomic, strong) UILabel *activityLabel;
 @property (atomic, strong) UIImageView *activityPopup;
 @property (atomic, strong) UIButton *aiButton;
