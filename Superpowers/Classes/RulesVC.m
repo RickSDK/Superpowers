@@ -45,12 +45,18 @@
 }
 
 - (IBAction) video1ButtonClicked: (id) sender {
-	[self playVideo:@"https://youtu.be/PS1MBaPTEO4?rel=0&autoplay=1"];
+	self.videoButton1.enabled=NO;
+	NSString *movieFile= [[NSBundle mainBundle] pathForResource:@"intro" ofType:@"mp4"];
+	[self playVideo:movieFile];
+//	[self playVideo:@"https://youtu.be/PS1MBaPTEO4?rel=0&autoplay=1"];
 }
 
 - (IBAction) video2ButtonClicked: (id) sender {
-	[self playVideo:@"https://youtu.be/hPTlEo8z4iQ?rel=0&autoplay=1"];
+	self.videoButton2.enabled=NO;
 	[ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"videoWatchedFlg"];
+	NSString *movieFile= [[NSBundle mainBundle] pathForResource:@"bt" ofType:@"mp4"];
+	[self playVideo:movieFile];
+//	[self playVideo:@"https://youtu.be/hPTlEo8z4iQ?rel=0&autoplay=1"];
 }
 
 -(void)playVideo:(NSString *)videoStr {

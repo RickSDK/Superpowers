@@ -80,12 +80,7 @@
 	} else {
 		usernameLabel.text = @"Log In";
 		self.rankLabel.text = @"New Recruit";
-		self.logoAlpha=100;
-		titleScreen.alpha=1;
-		self.screenLock=YES;
-		self.profileButton.enabled=NO;
-		self.mailButton.enabled=NO;
-		self.bugButton.enabled=NO;
+		[self showBlankScreen];
 	}
 
 	if(showDisolve) {
@@ -101,7 +96,68 @@
 		[ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"initVideo"];
 		[self playVideo];
 	}
+}
 
+-(void)showBlankScreen {
+	self.logoAlpha=100;
+	titleScreen.alpha=1;
+	self.screenLock=YES;
+	self.profileButton.enabled=NO;
+	self.mailButton.enabled=NO;
+	self.bugButton.enabled=NO;
+	self.loginView.hidden=NO;
+}
+
+-(void)playMovie {
+	self.movieController = [[MPMoviePlayerController alloc] init];
+	
+	self.movieController.controlStyle = MPMovieControlStyleNone;
+	self.movieController.scalingMode = MPMovieScalingModeFill; // MPMovieScalingModeAspectFill
+	[self.movieController prepareToPlay];
+	
+	self.blackView = [[UIView alloc] initWithFrame:CGRectZero];
+	self.blackView.backgroundColor = [UIColor blackColor];
+	[self.blackView addSubview:self.movieController.view];
+
+	[self positionPlayer];
+//	[self.view addSubview:self.movieController.view];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(moviePlayBackDidFinish)
+												 name:MPMoviePlayerPlaybackDidFinishNotification
+											   object:self.movieController];
+	
+	
+	self.movieController.view.hidden=NO;
+	NSString *movieFile= [[NSBundle mainBundle] pathForResource:@"intro" ofType:@"mp4"];
+	NSURL *videoURL=[[NSURL alloc] initFileURLWithPath:movieFile];
+	[self.movieController setContentURL:videoURL];
+	[self.movieController setFullscreen:YES animated:YES];
+	[self.movieController play];
+	
+	[[[[UIApplication sharedApplication] delegate] window] addSubview:self.blackView];
+//	[[[[UIApplication sharedApplication] delegate] window] addSubview:self.movieController.view];
+
+}
+
+-(void)positionPlayer {
+	float width=[ObjectiveCScripts screenWidth];
+	float height=[ObjectiveCScripts screenHeight];
+	[self.blackView setFrame:CGRectMake(0, 0, width*2, height*2)];
+	if(width>height)
+		[self.movieController.view setFrame:CGRectMake(0, 0, width, height)];
+	else
+		[self.movieController.view setFrame:CGRectMake(0, height/2-width/4, width, width/2)];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+	[self positionPlayer];
+}
+
+-(void)moviePlayBackDidFinish {
+	self.blackView.hidden=YES;
+	[self.blackView removeFromSuperview];
+	NSLog(@"Done!!!");
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -193,6 +249,7 @@
 		[activityIndicator stopAnimating];
 		
 		if([self veryifyLogin]) {
+			self.loginView.hidden=YES;
 			[ObjectiveCScripts setUserDefaultValue:[NSString stringWithFormat:@"%d", self.loginObj.level] forKey:@"userRank"];
 			
 			self.chatLabel.text = self.loginObj.chatMessage;
@@ -238,6 +295,7 @@
 		[ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"serverUp"];
 		if([[ObjectiveCScripts getUserDefaultValue:@"userName"] length]>0 && self.loginObj.user_id==0) {
 			[ObjectiveCScripts showAlertPopup:@"Sync Issue" :@"Try logging out and logging back in."];
+			[self showBlankScreen];
 			return NO;
 		}
 		
@@ -246,12 +304,14 @@
 			[ObjectiveCScripts showAlertPopup:@"Notice!" :@"Your version is outdated. Please visit the appStore and click on 'Update' tab to get the latest."];
 			self.messageLabel.text = @"Your version is outdated. Please visit the appStore to update.";
 			self.gamesButton.enabled=NO;
+			[self showBlankScreen];
 			return NO;
 		}
 	} else {
 		[ObjectiveCScripts showAlertPopup:@"Network Error" :@"Sorry, unable to reach superpowers sever at this time. Please try again later."];
 		retryButton.alpha=1;
 		[[[[UIApplication sharedApplication] delegate] window] addSubview:retryButton];
+		[self showBlankScreen];
 		return NO;
 	}
 	
@@ -459,7 +519,9 @@
 		self.hideVideoButton.hidden=NO;
 	}
 
-	NSURL *url = [NSURL URLWithString:@"https://youtu.be/PS1MBaPTEO4?rel=0&autoplay=1"];
+	NSString *movieFile= [[NSBundle mainBundle] pathForResource:@"intro" ofType:@"mp4"];
+	NSURL *url=[[NSURL alloc] initFileURLWithPath:movieFile];
+//	NSURL *url = [NSURL URLWithString:@"https://youtu.be/PS1MBaPTEO4?rel=0&autoplay=1"];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
 	self.mainWebView.mediaPlaybackRequiresUserAction = NO;
 	[self.mainWebView loadRequest:requestObj];

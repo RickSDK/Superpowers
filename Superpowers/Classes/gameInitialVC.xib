@@ -11,6 +11,7 @@
                 <outlet property="activityIndicator" destination="626" id="627"/>
                 <outlet property="activityLabel" destination="629" id="630"/>
                 <outlet property="activityPopup" destination="628" id="631"/>
+                <outlet property="aiButton" destination="Kng-Vb-XUc" id="JTL-ii-2Xn"/>
                 <outlet property="alliesButton" destination="968-t6-ZYi" id="bhH-Q0-Umy"/>
                 <outlet property="attRoundLabel" destination="737" id="740"/>
                 <outlet property="chatButton" destination="YhY-a4-Klo" id="rGy-JI-dry"/>
@@ -19,6 +20,7 @@
                 <outlet property="mainTableView" destination="722" id="725"/>
                 <outlet property="mapButton" destination="727" id="746"/>
                 <outlet property="roundLabel" destination="179" id="655"/>
+                <outlet property="surrenderButton" destination="h2J-zU-mv6" id="dDJ-ck-rWD"/>
                 <outlet property="techButton" destination="hgI-km-aOh" id="JMf-KD-6nC"/>
                 <outlet property="timerLabel" destination="739" id="742"/>
                 <outlet property="view" destination="1" id="3"/>

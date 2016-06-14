@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) IBOutlet UIWebView *mainWebView;
 @property (nonatomic, strong) IBOutlet UIView *nationView;
+@property (nonatomic, strong) IBOutlet UIButton *videoButton1;
+@property (nonatomic, strong) IBOutlet UIButton *videoButton2;
 
 - (IBAction) nextButtonClicked: (id) sender;
 - (IBAction) rulebookButtonClicked: (id) sender;

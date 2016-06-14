@@ -185,7 +185,6 @@
 		6B949ADA17823EF500B34FF9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B949AD917823EF500B34FF9 /* AudioToolbox.framework */; };
 		6B949ADC178255AB00B34FF9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B949ADB178255AB00B34FF9 /* AVFoundation.framework */; };
 		6B949AE01784976000B34FF9 /* piece14.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B949ADF1784976000B34FF9 /* piece14.png */; };
-		6B949AE21784DACA00B34FF9 /* war.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B949AE11784DACA00B34FF9 /* war.mp3 */; };
 		6BA2BCD916E8260C00C4FF6C /* flag0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6BA2BCD816E8260C00C4FF6C /* flag0.gif */; };
 		6BA44B82174AFD3400C90ACA /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA44B80174AFD3300C90ACA /* ProfileVC.m */; };
 		6BA44B83174AFD3400C90ACA /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA44B81174AFD3400C90ACA /* ProfileVC.xib */; };
@@ -283,6 +282,9 @@
 		6BC9C7251CE3B32700C32B46 /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9C7241CE3B32700C32B46 /* blueArrowDown.png */; };
 		6BC9FA4C1CD27FFE00BC0799 /* ForumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC9FA4A1CD27FFE00BC0799 /* ForumsVC.m */; };
 		6BC9FA4D1CD27FFE00BC0799 /* ForumsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC9FA4B1CD27FFE00BC0799 /* ForumsVC.xib */; };
+		6BCBE6B81D08F1D5006C2AAD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCBE6B71D08F1D5006C2AAD /* MediaPlayer.framework */; };
+		6BCBE6BB1D08F803006C2AAD /* bt.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6BCBE6BA1D08F803006C2AAD /* bt.mp4 */; };
+		6BCBE6BD1D08F829006C2AAD /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6BCBE6BC1D08F829006C2AAD /* intro.mp4 */; };
 		6BCC1F1C16CC0DF20056CB17 /* SBCBuildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCC1F1A16CC0DF20056CB17 /* SBCBuildVC.m */; };
 		6BCC1F1D16CC0DF20056CB17 /* SBCBuildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BCC1F1B16CC0DF20056CB17 /* SBCBuildVC.xib */; };
 		6BD4C8DF1705112E00CD5CBB /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4C8DE1705112E00CD5CBB /* PlayerCell.m */; };
@@ -573,7 +575,6 @@
 		6B949AD917823EF500B34FF9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6B949ADB178255AB00B34FF9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6B949ADF1784976000B34FF9 /* piece14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piece14.png; sourceTree = "<group>"; };
-		6B949AE11784DACA00B34FF9 /* war.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = war.mp3; sourceTree = "<group>"; };
 		6BA2BCD816E8260C00C4FF6C /* flag0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = flag0.gif; sourceTree = "<group>"; };
 		6BA44B7F174AFD3300C90ACA /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
 		6BA44B80174AFD3300C90ACA /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
@@ -701,6 +702,10 @@
 		6BC9FA491CD27FFE00BC0799 /* ForumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsVC.h; sourceTree = "<group>"; };
 		6BC9FA4A1CD27FFE00BC0799 /* ForumsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsVC.m; sourceTree = "<group>"; };
 		6BC9FA4B1CD27FFE00BC0799 /* ForumsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForumsVC.xib; sourceTree = "<group>"; };
+		6BCBE6B61D08F028006C2AAD /* BasicTraining.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; path = BasicTraining.wmv; sourceTree = "<group>"; };
+		6BCBE6B71D08F1D5006C2AAD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		6BCBE6BA1D08F803006C2AAD /* bt.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bt.mp4; sourceTree = "<group>"; };
+		6BCBE6BC1D08F829006C2AAD /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
 		6BCC1F1916CC0DF20056CB17 /* SBCBuildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCBuildVC.h; sourceTree = "<group>"; };
 		6BCC1F1A16CC0DF20056CB17 /* SBCBuildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCBuildVC.m; sourceTree = "<group>"; };
 		6BCC1F1B16CC0DF20056CB17 /* SBCBuildVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBCBuildVC.xib; sourceTree = "<group>"; };
@@ -796,6 +801,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BCBE6B81D08F1D5006C2AAD /* MediaPlayer.framework in Frameworks */,
 				6B949ADC178255AB00B34FF9 /* AVFoundation.framework in Frameworks */,
 				6B949ADA17823EF500B34FF9 /* AudioToolbox.framework in Frameworks */,
 				6B3A42E71713C2EB0018A897 /* iAd.framework in Frameworks */,
@@ -961,6 +967,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				6BCBE6B51D08F017006C2AAD /* videos */,
 				6B949ADB178255AB00B34FF9 /* AVFoundation.framework */,
 				6B949AD917823EF500B34FF9 /* AudioToolbox.framework */,
 				6B949AD417823DA800B34FF9 /* sounds */,
@@ -1003,6 +1010,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BCBE6B71D08F1D5006C2AAD /* MediaPlayer.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
@@ -1341,10 +1349,19 @@
 		6B949AD417823DA800B34FF9 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
-				6B949AE11784DACA00B34FF9 /* war.mp3 */,
+				6BCBE6B61D08F028006C2AAD /* BasicTraining.wmv */,
+				6BCBE6BA1D08F803006C2AAD /* bt.mp4 */,
+				6BCBE6BC1D08F829006C2AAD /* intro.mp4 */,
 				6B949AD717823E0900B34FF9 /* crowd.wav */,
 			);
 			name = sounds;
+			sourceTree = "<group>";
+		};
+		6BCBE6B51D08F017006C2AAD /* videos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = videos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1436,6 +1453,7 @@
 				6BB98C8C15965EDC00CEEA5C /* greenGradient.png in Resources */,
 				6BB98CB61596648800CEEA5C /* TrainingVC.xib in Resources */,
 				6BB98D7F15990E8E00CEEA5C /* GameBasicsVC.xib in Resources */,
+				6BCBE6BB1D08F803006C2AAD /* bt.mp4 in Resources */,
 				6BB98D861599108400CEEA5C /* step1.JPG in Resources */,
 				6BB98D99159914D500CEEA5C /* step3.JPG in Resources */,
 				6BB98DA1159915C800CEEA5C /* PraticeGameVC.xib in Resources */,
@@ -1471,6 +1489,7 @@
 				6B1945C715F6D3D50028F943 /* piece23.gif in Resources */,
 				6B1945C815F6D3D50028F943 /* piece24.gif in Resources */,
 				6B1945C915F6D3D50028F943 /* piece25.gif in Resources */,
+				6BCBE6BD1D08F829006C2AAD /* intro.mp4 in Resources */,
 				6B1945CA15F6D3D50028F943 /* piece26.gif in Resources */,
 				6B6955F51C4B551F004CB475 /* Default-568h.png in Resources */,
 				6B1945CB15F6D3D50028F943 /* piece27.gif in Resources */,
@@ -1677,7 +1696,6 @@
 				6B94998417790C6E00B34FF9 /* ChooseNationVC.xib in Resources */,
 				6B949AD817823E0900B34FF9 /* crowd.wav in Resources */,
 				6B949AE01784976000B34FF9 /* piece14.png in Resources */,
-				6B949AE21784DACA00B34FF9 /* war.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

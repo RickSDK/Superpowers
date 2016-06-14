@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSString *countryAttacked;
 @property (nonatomic, strong) NSString *cancelFlg;
 @property (nonatomic, strong) NSString *lastLogin;
+@property (nonatomic, strong) NSString *accountSitReason;
 
 @property (nonatomic, strong) NSMutableArray *playerList;
 

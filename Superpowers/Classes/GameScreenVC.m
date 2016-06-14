@@ -74,9 +74,9 @@
 	self.bottomGrayToolBar.hidden=YES;
 	
 	self.mainScrollView.contentSize = CGSizeMake(1768, 1040);
-	UIImage *boardImg = [UIImage imageNamed:@"board1800.jpg"];
-	UIImageView *boardImgView = [[UIImageView alloc] initWithImage:boardImg];
-	[self.mainScrollView addSubview:boardImgView];
+//	UIImage *boardImg = [UIImage imageNamed:@"board1800.jpg"];
+//	UIImageView *boardImgView = [[UIImageView alloc] initWithImage:boardImg];
+//	[self.mainScrollView addSubview:boardImgView];
 	
 	
 	UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapGridTapped:)];
@@ -123,12 +123,12 @@
 {
 	if(type==0) {
 		gameSegment.alpha=1;
-		mainWebView.center = CGPointMake(240, 274);
-		[mainWebView setFrame:CGRectMake(0, 0, 320, 426)];
+//		mainWebView.center = CGPointMake(240, 274);
+//		[mainWebView setFrame:CGRectMake(0, 0, 320, 426)];
 	} else {
 		gameSegment.alpha=0;
-		mainWebView.center = CGPointMake(240, 234);
-		[mainWebView setFrame:CGRectMake(0, 0, 480, 300)];
+//		mainWebView.center = CGPointMake(240, 234);
+//		[mainWebView setFrame:CGRectMake(0, 0, 480, 300)];
 	}
 }
 
@@ -1007,6 +1007,9 @@
     int yMax=16;
     int grid=0;
 	
+	self.mainScrollView.hidden=YES;
+	NSLog(@"layoutGrid");
+	
 //	UIScrollView *localScrollview = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //	localScrollview.contentSize = CGSizeMake(1768, 1040);
 	
@@ -1101,6 +1104,8 @@
 //	[self.view addSubview:localScrollview];
 	
 	[self.mainScrollView addSubview:localView];
+	self.mainScrollView.hidden=NO;
+	NSLog(@"layoutGrid end");
 	
 }
 
@@ -1187,23 +1192,19 @@
 -(void)buildMap {
 	@autoreleasepool {
         [self loadTerritories];
-        
-		
-//		[NSThread sleepForTimeInterval:.2];
-        if([self.territoryArray count]>100)
-            [self layoutGrid];
- 
 		[self setupButtons];
 
         self.mainScrollView.alpha=1;
 		[self.mainTableView reloadData];
-//		if(self.gameObj.turnFlg)
-			[self scrollMap];
-        [self endThreadedJob];
 		
 		[self showTopBar];
 		[self checkMessages];
-
+		
+		if([self.territoryArray count]>100)
+			[self layoutGrid];
+		if([@"Purchase" isEqualToString:self.playerStatusString])
+			[self scrollMap];
+		[self endThreadedJob];
 	}
 }
 
@@ -1462,8 +1463,8 @@
     [self dismissDetailView];
     self.showPanelFlg=YES;
 	
-	
-    [self executeThreadedJob:@selector(buildMap)];
+	[self buildMap];
+//    [self executeThreadedJob:@selector(buildMap)];
     
 }
 

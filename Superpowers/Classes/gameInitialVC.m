@@ -83,13 +83,26 @@
 }
 
 - (IBAction) mapButtonClicked: (id) sender {
-    GameScreenVC *detailViewController = [[GameScreenVC alloc] initWithNibName:@"GameScreenVC" bundle:nil];
-    detailViewController.gameId = gameId;
+	
+	activityPopup.alpha=1;
+	activityLabel.alpha=1;
+	[activityIndicator startAnimating];
+	self.mapButton.enabled=NO;
+
+	[self performSelectorInBackground:@selector(gotoGameScreenBG) withObject:nil];
+}
+
+-(void)gotoGameScreenBG {
+	[self performSelectorOnMainThread:@selector(gotoGameScreen) withObject:nil waitUntilDone:YES];
+}
+
+-(void)gotoGameScreen {
+	GameScreenVC *detailViewController = [[GameScreenVC alloc] initWithNibName:@"GameScreenVC" bundle:nil];
+	detailViewController.gameId = gameId;
 	detailViewController.gameObj=self.gameObj;
-    detailViewController.gameDetailsString = self.gameDetailsString;
-    detailViewController.playerTurn=self.playerTurn;
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    
+	detailViewController.gameDetailsString = self.gameDetailsString;
+	detailViewController.playerTurn=self.playerTurn;
+	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 -(void)aiGo
@@ -317,17 +330,18 @@
             
 			[self.aiButton setTitle:@"A.I. Take Turn" forState:UIControlStateNormal];
 			[self.surrenderButton setTitle:@"Surrender" forState:UIControlStateNormal];
-           
+			
             self.gameDetailsString = [components objectAtIndex:0];
 //			NSLog(@"gameDetailsString: %@", self.gameDetailsString);
 			
             NSArray *gameDetails = [[components objectAtIndex:0] componentsSeparatedByString:@"|"];
  //           NSArray *players = [[components objectAtIndex:1] componentsSeparatedByString:@"<li>"];
             int userTurn=0;
-            if([gameDetails count]>24) {
+            if([gameDetails count]>27) {
                 self.cancelGameFlg = [gameDetails objectAtIndex:24];
 				self.gameObj.turnName = [gameDetails objectAtIndex:25];
 				self.accountSitButton.enabled = [@"Y" isEqualToString:[gameDetails objectAtIndex:26]];
+				self.gameObj.accountSitReason = [gameDetails objectAtIndex:27];
                 self.skipTurnFlg = [gameDetails objectAtIndex:22];
                 if([@"Y" isEqualToString:self.skipTurnFlg]) {
 					[ObjectiveCScripts addColorToButton:self.aiButton color:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
@@ -399,8 +413,11 @@
                     surrenderButton.enabled=NO;
                 }
                 
-                if([@"Open" isEqualToString:self.gameStatus])
+				NSLog(@"self.gameStatus %@", self.gameStatus);
+				if([@"Open" isEqualToString:self.gameStatus]) {
+					NSLog(@"start!");
 					[self.aiButton setTitle:@"Start" forState:UIControlStateNormal];
+				}
 
                 if([@"C" isEqualToString:self.cancelGameFlg]) {
  					[self.surrenderButton setTitle:@"Cancel" forState:UIControlStateNormal];
@@ -503,7 +520,10 @@
 
 
 - (IBAction) infoButtonClicked: (id) sender {
-	[ObjectiveCScripts showAlertPopup:@"Account Sit" :@"Once an ally's timer reaches 12 hours, you can take their turn for them."];
+	if(self.gameObj.accountSitReason.length>0)
+		[ObjectiveCScripts showAlertPopup:@"Account Sit" :[NSString stringWithFormat:@"Once an ally's timer reaches 12 hours, you can take their turn for them.\n\nNot availble right now for this reason: %@", self.gameObj.accountSitReason]];
+	else
+		[ObjectiveCScripts showAlertPopup:@"Account Sit" :@"You are able to take this player's turn for them because you are an ally and the timer is down to 12 hours."];
 }
 
 - (IBAction) statsButtonClicked: (id) sender {

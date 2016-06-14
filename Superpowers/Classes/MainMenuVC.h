@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "LoginObj.h"
 #import "TemplateVC.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 
 @interface MainMenuVC : TemplateVC {
@@ -69,6 +71,9 @@
 @property (nonatomic, strong) IBOutlet UIView *chatView;
 @property (nonatomic, strong) IBOutlet UIView *profileView;
 @property (nonatomic, strong) IBOutlet UIView *popupView;
+@property (nonatomic, strong) IBOutlet UIView *blackView;
+@property (strong, nonatomic) MPMoviePlayerController *movieController;
+
 @property (nonatomic, strong) UILabel *versionLabel;
 @property (nonatomic, strong) UILabel *chatLabel;
 @property (nonatomic, strong) UIButton *gamesButton;

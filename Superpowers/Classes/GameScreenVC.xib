@@ -161,18 +161,6 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R3d-lf-zUy">
-                    <rect key="frame" x="2" y="2" width="47" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="X" backgroundImage="yellowChromeBut.png">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="xButtonClicked:" destination="-1" eventType="touchDown" id="KSn-wa-W9b"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" id="7uk-Ux-NFW" customClass="CustomView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>

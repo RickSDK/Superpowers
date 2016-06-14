@@ -10,6 +10,8 @@
                 <outlet property="mainWebView" destination="Zqe-tx-MCE" id="wzK-fQ-3jV"/>
                 <outlet property="nationView" destination="RXn-2Q-I5i" id="CRR-EZ-CDF"/>
                 <outlet property="popupView" destination="yET-yB-ePM" id="wO4-3B-k96"/>
+                <outlet property="videoButton1" destination="D1E-pi-gDZ" id="zSV-KM-fTq"/>
+                <outlet property="videoButton2" destination="KJP-Ja-Pjj" id="60I-uN-4Zp"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
