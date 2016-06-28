@@ -290,6 +290,11 @@
 		6BD4C8DF1705112E00CD5CBB /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4C8DE1705112E00CD5CBB /* PlayerCell.m */; };
 		6BD4C8E21707850B00CD5CBB /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4C8E01707850B00CD5CBB /* green.png */; };
 		6BD4C8E31707850B00CD5CBB /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4C8E11707850B00CD5CBB /* red.png */; };
+		6BD4D9351D11CBC100236804 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4D9341D11CBC100236804 /* FontAwesome.ttf */; };
+		6BD4D93C1D11CBF100236804 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4D9371D11CBF100236804 /* NSString+FontAwesome.m */; };
+		6BD4D93D1D11CBF100236804 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4D9391D11CBF100236804 /* UIFont+FontAwesome.m */; };
+		6BD4D93E1D11CBF100236804 /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4D93B1D11CBF100236804 /* UIImage+FontAwesome.m */; };
+		6BD4D9401D11CC2400236804 /* fontawesome-github.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4D93F1D11CC2400236804 /* fontawesome-github.jpg */; };
 		6BD774E61CD928040073685E /* DiplomacyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD774E41CD928040073685E /* DiplomacyVC.m */; };
 		6BD774E71CD928040073685E /* DiplomacyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BD774E51CD928040073685E /* DiplomacyVC.xib */; };
 		6BD774EA1CD966D30073685E /* DiplomacyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD774E91CD966D30073685E /* DiplomacyCell.m */; };
@@ -713,6 +718,14 @@
 		6BD4C8DE1705112E00CD5CBB /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		6BD4C8E01707850B00CD5CBB /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		6BD4C8E11707850B00CD5CBB /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		6BD4D9341D11CBC100236804 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		6BD4D9361D11CBF100236804 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		6BD4D9371D11CBF100236804 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		6BD4D9381D11CBF100236804 /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FontAwesome.h"; sourceTree = "<group>"; };
+		6BD4D9391D11CBF100236804 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
+		6BD4D93A1D11CBF100236804 /* UIImage+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FontAwesome.h"; sourceTree = "<group>"; };
+		6BD4D93B1D11CBF100236804 /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FontAwesome.m"; sourceTree = "<group>"; };
+		6BD4D93F1D11CC2400236804 /* fontawesome-github.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fontawesome-github.jpg"; sourceTree = "<group>"; };
 		6BD774E31CD928040073685E /* DiplomacyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiplomacyVC.h; sourceTree = "<group>"; };
 		6BD774E41CD928040073685E /* DiplomacyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiplomacyVC.m; sourceTree = "<group>"; };
 		6BD774E51CD928040073685E /* DiplomacyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiplomacyVC.xib; sourceTree = "<group>"; };
@@ -1001,6 +1014,8 @@
 				6B6955F81C4B5555004CB475 /* Images.xcassets */,
 				28D3F201112F7DC200FD0661 /* Superpowers.xcdatamodeld */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
+				6BD4D9341D11CBC100236804 /* FontAwesome.ttf */,
+				6BD4D93F1D11CC2400236804 /* fontawesome-github.jpg */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Superpowers-Info.plist */,
 			);
@@ -1312,6 +1327,12 @@
 				6B8B8B86157546EC000F0248 /* WebServicesFunctions.m */,
 				6B8B8B9215754729000F0248 /* ObjectiveCScripts.h */,
 				6B8B8B9315754729000F0248 /* ObjectiveCScripts.m */,
+				6BD4D9361D11CBF100236804 /* NSString+FontAwesome.h */,
+				6BD4D9371D11CBF100236804 /* NSString+FontAwesome.m */,
+				6BD4D9381D11CBF100236804 /* UIFont+FontAwesome.h */,
+				6BD4D9391D11CBF100236804 /* UIFont+FontAwesome.m */,
+				6BD4D93A1D11CBF100236804 /* UIImage+FontAwesome.h */,
+				6BD4D93B1D11CBF100236804 /* UIImage+FontAwesome.m */,
 				6BEA905416DAC490003F9809 /* Board.h */,
 				6BEA905516DAC490003F9809 /* Board.m */,
 				6B949AD117823D1500B34FF9 /* SoundsLib.h */,
@@ -1431,6 +1452,7 @@
 				6B8B8A9A1574205C000F0248 /* flag3.gif in Resources */,
 				6B8B8A9B1574205C000F0248 /* flag4.gif in Resources */,
 				6B8B8A9C1574205C000F0248 /* flag5.gif in Resources */,
+				6BD4D9401D11CC2400236804 /* fontawesome-github.jpg in Resources */,
 				6B8B8A9D1574205C000F0248 /* flag6.gif in Resources */,
 				6B8B8A9E1574205C000F0248 /* flag7.gif in Resources */,
 				6B8B8A9F1574205C000F0248 /* flag8.gif in Resources */,
@@ -1588,6 +1610,7 @@
 				6BEA909516DC5AA0003F9809 /* flag_ex3.gif in Resources */,
 				6BEA909616DC5AA0003F9809 /* flag_ex4.gif in Resources */,
 				6BEA909716DC5AA0003F9809 /* flag_ex5.gif in Resources */,
+				6BD4D9351D11CBC100236804 /* FontAwesome.ttf in Resources */,
 				6BEA909816DC5AA0003F9809 /* flag_ex6.gif in Resources */,
 				6BEA909916DC5AA0003F9809 /* flag_ex7.gif in Resources */,
 				6BB809AF1D0363B600ADAD99 /* income4.png in Resources */,
@@ -1729,8 +1752,10 @@
 				6B8B8B9415754729000F0248 /* ObjectiveCScripts.m in Sources */,
 				6B8B8BF415757390000F0248 /* GamesVC.m in Sources */,
 				6B8B8E641576D1C9000F0248 /* GameScreenVC.m in Sources */,
+				6BD4D93E1D11CBF100236804 /* UIImage+FontAwesome.m in Sources */,
 				6BB98BBA1595186D00CEEA5C /* ChatVC.m in Sources */,
 				6BB98C3A1595338000CEEA5C /* CreateGameVC.m in Sources */,
+				6BD4D93D1D11CBF100236804 /* UIFont+FontAwesome.m in Sources */,
 				6BB98CB51596648800CEEA5C /* TrainingVC.m in Sources */,
 				6BC9A61E1CF65EBB00604C28 /* UserObj.m in Sources */,
 				6B69560C1C4B6F31004CB475 /* CustomButton.m in Sources */,
@@ -1743,6 +1768,7 @@
 				6BC5CDAD16BB68AA00EC9060 /* CreateMultiPlayerGameVC.m in Sources */,
 				6B12159A16C8168F00767280 /* gameInitialVC.m in Sources */,
 				6B12159F16C822C700767280 /* GameViewsVC.m in Sources */,
+				6BD4D93C1D11CBF100236804 /* NSString+FontAwesome.m in Sources */,
 				6BC8618E16C99A86009DD96F /* GameDetailsVC.m in Sources */,
 				6BC8619316C9CB94009DD96F /* PurchaseVC.m in Sources */,
 				6BC8619816CAEBAC009DD96F /* AttackVC.m in Sources */,

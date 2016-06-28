@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+FontAwesome.h"
+#import "UIFont+FontAwesome.h"
 
 #define kPRODMode 1
 

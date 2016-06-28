@@ -34,7 +34,7 @@
                     <size key="shadowOffset" width="1" height="1"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D1E-pi-gDZ">
-                    <rect key="frame" x="91" y="49" width="138" height="44"/>
+                    <rect key="frame" x="91" y="50" width="138" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="Intro Video" backgroundImage="blueChromeBut.png">
@@ -46,7 +46,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KJP-Ja-Pjj">
-                    <rect key="frame" x="41" y="101" width="239" height="44"/>
+                    <rect key="frame" x="41" y="105" width="239" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="Basic Training Video" backgroundImage="blueChromeBut.png">
@@ -58,7 +58,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2SK-P5-IB3">
-                    <rect key="frame" x="40" y="196" width="239" height="44"/>
+                    <rect key="frame" x="40" y="196" width="239" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="The Superpowers" backgroundImage="redChromeBut.png">

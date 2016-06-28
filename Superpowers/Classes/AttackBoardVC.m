@@ -96,8 +96,11 @@
 					[alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
 				}
             }
-       }
-        
+		} else {
+			[ObjectiveCScripts showAlertPopup:@"Error" :@"unexpected error. Click battle board button to continue."];
+			[self.navigationController popViewControllerAnimated:YES];
+		}
+			
 
 
         [self.activityIndicator stopAnimating];
@@ -147,7 +150,8 @@
 		if(buttonIndex!=alertView.cancelButtonIndex) {
 			[self generalBack];
 			self.attackButton.enabled=NO;
-			[self.navigationController popViewControllerAnimated:YES];
+			[self.navigationController popToViewController:self.callBackViewController animated:YES];
+//			[self.navigationController popViewControllerAnimated:YES];
 		}
 		return;
 	}
@@ -249,6 +253,7 @@
 	NSURL *url = [NSURL URLWithString:weblink];
     
     NSString *page = [WebServicesFunctions getResponseFromWeb:weblink];
+	
     NSArray *components = [page componentsSeparatedByString:@"<a>"];
     if([components count]>1)
         page = [components objectAtIndex:1];
@@ -263,14 +268,15 @@
         else {
             [ObjectiveCScripts showAlertPopup:@"Page Timed Out" :@"Reloading..."];
             [self.mainWebView loadRequest:[NSURLRequest requestWithURL:url]];
-            [NSThread sleepForTimeInterval:7];
+            [NSThread sleepForTimeInterval:2];
         }
     }
     
     [NSThread sleepForTimeInterval:.5];
     
     if([components count]>0) {
-        
+		NSLog(@"components: %@", [components objectAtIndex:0]);
+		
         NSArray *parts = [[components objectAtIndex:0] componentsSeparatedByString:@"|"];
         if([parts count]>9) {
             int attackingUnits = [[parts objectAtIndex:1] intValue];
@@ -283,12 +289,16 @@
             NSString *generalWithdrawFlg = [parts objectAtIndex:8];
             NSString *battleStartedFlg = [parts objectAtIndex:9];
             
-            if(attackingUnits>0 && ![@"Y" isEqualToString:battleStartedFlg])
+			if(attackingUnits>0 && ![@"Y" isEqualToString:battleStartedFlg]) {
                 self.attackButton.enabled=YES;
-            
-            if(attackingUnits>0 && self.continueButton.alpha==0)
+				self.rightButton.enabled=NO;
+			}
+			
+			if(attackingUnits>0 && self.continueButton.alpha==0) {
                 self.attackButton.enabled=YES;
-            
+				self.rightButton.enabled=NO;
+			}
+				
             if(defendingUnits>0)
                 self.retreatButton.enabled=YES;
             

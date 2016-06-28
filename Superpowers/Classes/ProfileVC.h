@@ -40,10 +40,13 @@
 @property (nonatomic, strong) IBOutlet UIButton *phoneButton;
 @property (nonatomic, strong) IBOutlet UIButton *testButton;
 @property (nonatomic, strong) IBOutlet UIButton *updateButton;
+@property (nonatomic, strong) IBOutlet UISwitch *messageSwitch;
+@property (nonatomic, strong) IBOutlet UILabel *messageLabel;
 
 - (IBAction) infoButtonClicked: (id) sender;
 - (IBAction) updateButtonClicked: (id) sender;
 - (IBAction) testButtonClicked: (id) sender;
 - (IBAction) phoneButtonClicked: (id) sender;
+- (IBAction) switchClicked: (id) sender;
 
 @end

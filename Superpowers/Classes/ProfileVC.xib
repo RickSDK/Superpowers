@@ -11,6 +11,8 @@
                 <outlet property="last10Label" destination="19" id="22"/>
                 <outlet property="lossesLabel" destination="16" id="23"/>
                 <outlet property="mainSegment" destination="3jB-L9-LcH" id="Avy-uB-u49"/>
+                <outlet property="messageLabel" destination="ynj-y1-S5Y" id="3Ad-l0-IoP"/>
+                <outlet property="messageSwitch" destination="43a-cQ-gp3" id="JVD-HW-3ab"/>
                 <outlet property="phoneButton" destination="X5a-Pp-7eb" id="qDM-ai-cUa"/>
                 <outlet property="phoneTextField" destination="hjL-3h-bmx" id="5GT-uR-blh"/>
                 <outlet property="popupView" destination="iEJ-YJ-RJA" id="3x6-ab-oGt"/>
@@ -193,18 +195,32 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell Phone:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZPX-aR-rVp">
-                            <rect key="frame" x="15" y="56" width="107" height="21"/>
+                            <rect key="frame" x="15" y="56" width="84" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" minimumFontSize="17" id="hjL-3h-bmx">
-                            <rect key="frame" x="143" y="52" width="153" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" id="hjL-3h-bmx">
+                            <rect key="frame" x="107" y="52" width="189" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="43a-cQ-gp3">
+                            <rect key="frame" x="219" y="191" width="79" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="switchClicked:" destination="-1" eventType="valueChanged" id="WLy-rN-OSJ"/>
+                            </connections>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messaging" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ynj-y1-S5Y">
+                            <rect key="frame" x="89" y="194" width="122" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>

@@ -37,10 +37,14 @@
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createPressed:)];
 	self.navigationItem.rightBarButtonItem = addButton;
 	
-	[self doWebRequest];
-	
-	
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[self doWebRequest];
+}
+
 /*
 -(void)checkWebLogin
 {

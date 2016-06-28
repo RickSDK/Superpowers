@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainMenuVC">
             <connections>
                 <outlet property="activityIndicator" destination="26" id="27"/>
+                <outlet property="announcementLabel" destination="GXF-N3-lkU" id="dt3-vE-avg"/>
                 <outlet property="bugButton" destination="vvX-tI-iQI" id="zWD-SQ-iKY"/>
                 <outlet property="chatButton" destination="5p8-0F-84d" id="ZCL-HL-Pta"/>
                 <outlet property="chatLabel" destination="66" id="68"/>
@@ -56,11 +57,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" id="dSY-Mv-PgQ">
-                    <rect key="frame" x="0.0" y="348" width="320" height="44"/>
+                    <rect key="frame" x="0.0" y="343" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5p8-0F-84d">
-                            <rect key="frame" x="250" y="4" width="70" height="37"/>
+                            <rect key="frame" x="250" y="3" width="70" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <size key="titleShadowOffset" width="1" height="1"/>
                             <state key="normal" title="View" backgroundImage="blueChromeBut.png">
@@ -71,7 +72,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="66">
-                            <rect key="frame" x="50" y="0.0" width="200" height="44"/>
+                            <rect key="frame" x="51" y="3" width="199" height="24"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,11 +80,29 @@
                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <size key="shadowOffset" width="1" height="1"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Latest Chat" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="67">
-                            <rect key="frame" x="0.0" y="3" width="42" height="38"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Chat:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="67">
+                            <rect key="frame" x="0.0" y="3" width="43" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" red="0.86413043479999996" green="0.75708302220000001" blue="0.089375510680000006" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <size key="shadowOffset" width="1" height="1"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Msg:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dhd-ea-GmB">
+                            <rect key="frame" x="0.0" y="22" width="43" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" red="0.86413043479999996" green="0.75708302220000001" blue="0.089375510680000006" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <size key="shadowOffset" width="1" height="1"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="GXF-N3-lkU">
+                            <rect key="frame" x="51" y="22" width="199" height="24"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <size key="shadowOffset" width="1" height="1"/>
@@ -285,7 +304,7 @@
                     <size key="shadowOffset" width="1" height="1"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ijZ-3m-DnS">
-                    <rect key="frame" x="0.0" y="305" width="160" height="44"/>
+                    <rect key="frame" x="0.0" y="299" width="160" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <state key="normal" title="League" backgroundImage="blueChromeBut.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -296,7 +315,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jSs-di-mXc">
-                    <rect key="frame" x="162" y="305" width="158" height="44"/>
+                    <rect key="frame" x="162" y="299" width="158" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <state key="normal" title="Newest Players" backgroundImage="blueChromeBut.png">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

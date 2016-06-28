@@ -60,6 +60,8 @@
         self.rankLabel.text = [ranks objectAtIndex:rank];
         self.rankImageView.image=[UIImage imageNamed:[NSString stringWithFormat:@"rank%d.gif", rank]];
 	
+	self.mainSegment.selectedSegmentIndex = [[ObjectiveCScripts getUserDefaultValue:@"textSegment"] intValue];
+	[self.mainSegment changeSegment];
 	self.phoneTextField.text = self.loginObj.phone;
 	self.popupView.hidden=self.loginObj.phone.length>0;
 
@@ -79,6 +81,7 @@
 }
 - (IBAction) updateButtonClicked: (id) sender {
 	self.updateButton.enabled=NO;
+	[ObjectiveCScripts setUserDefaultValue:[NSString stringWithFormat:@"%d", (int)self.mainSegment.selectedSegmentIndex] forKey:@"textSegment"];
 	[self performSelectorInBackground:@selector(updateText) withObject:nil];
 }
 
@@ -123,6 +126,20 @@
 }
 - (IBAction) phoneButtonClicked: (id) sender {
 	self.popupView.hidden=!self.popupView.hidden;
+}
+
+- (IBAction) switchClicked: (id) sender {
+	if(self.messageSwitch.on) {
+		self.phoneTextField.text = self.loginObj.phone;
+		self.messageLabel.text = @"Enabled";
+	} else {
+		self.phoneTextField.text = @"off";
+		self.messageLabel.text = @"Disabled";
+	}
+	self.phoneTextField.enabled=self.messageSwitch.on;
+	self.mainSegment.enabled=self.messageSwitch.on;
+	self.testButton.enabled=self.messageSwitch.on;
+	
 }
 
 

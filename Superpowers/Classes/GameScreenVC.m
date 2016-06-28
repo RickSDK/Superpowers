@@ -228,6 +228,8 @@
 		NSString *purchaseImg = [NSString stringWithFormat:@"piece%d.gif", self.purchasePiece];
 		if(self.purchasePiece<=14)
 			purchaseImg = [NSString stringWithFormat:@"piece%d.png", self.purchasePiece];
+		if(self.purchasePiece==12)
+			purchaseImg = @"piece12.gif";
 		if(self.placeUnitType==1) {
 			[self.diplomacyButton setBackgroundImage:[UIImage imageNamed:purchaseImg] forState:UIControlStateNormal];
 			self.diplomacyLabel.text = @"Sea Units";
@@ -744,7 +746,7 @@
 		   return NO;
 	   }
         if(self.terr_id==7) {
-            [ObjectiveCScripts showAlertPopup:@"Good work!" :@"Check out the units on that country. In fact you control all the gray countries of the European Union. Next find and click on Japan. That nation is controlled by the Computer in this game."];
+            [ObjectiveCScripts showAlertPopup:@"Good work!" :@"You control all the gray countries of the European Union. Next find and click on Japan."];
             [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"germanyClick"];
             return YES;
         } else {
@@ -754,7 +756,7 @@
     } //<-- germanyClick
     if([[ObjectiveCScripts getUserDefaultValue:@"japanClick"] length]==0) {
         if(self.terr_id==21) {
-            [ObjectiveCScripts showAlertPopup:@"Good work!" :@"The computer is trying to take over Russia and Indo China before you do. Your first goal is to invade and conquer Russia. Now find Russia on the map and click on it."];
+            [ObjectiveCScripts showAlertPopup:@"Good work!" :@"Your first goal is to invade and conquer Russia. Now find Russia on the map and click on it."];
             [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"japanClick"];
             return YES;
         } else {
@@ -764,7 +766,7 @@
     } //<-- germanyClick
     if([[ObjectiveCScripts getUserDefaultValue:@"russiaClick"] length]==0) {
         if(self.terr_id==13) {
-            [ObjectiveCScripts showAlertPopup:@"Good work!" :@"You are in a race with Japan to take over that nation. You also want to take over Indo China, so find that nation and click on it."];
+            [ObjectiveCScripts showAlertPopup:@"Good work!" :@"You also want to take over Indo China, so find that nation and click on it."];
             [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"russiaClick"];
             return YES;
         } else {
@@ -774,7 +776,7 @@
     } //<-- russiaClick
     if([[ObjectiveCScripts getUserDefaultValue:@"indoClick"] length]==0) {
         if(self.terr_id==28) {
-            [ObjectiveCScripts showAlertPopup:@"Good work!" :@"You are now ready to take your first turn. Click on the 'Purchase' button to purchase units. Tanks and infantry are going to be best for this game."];
+            [ObjectiveCScripts showAlertPopup:@"Good work!" :@"Click on the 'Purchase' button to purchase units. Tanks and infantry are going to be best for this game."];
             [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"indoClick"];
             self.takeTurnButton.enabled=YES;
 			self.actionButton.enabled=YES;
@@ -822,14 +824,14 @@
                 return NO;
             }
         }
-        [ObjectiveCScripts showAlertPopup:@"Movement Done" :@"You are now ready to place the units you purchased at the beginning. Press the 'Place Units' button."];
+        [ObjectiveCScripts showAlertPopup:@"Movement Done" :@"Press the 'Place Units' button."];
 		self.actionButton.enabled=NO;
 		self.undoButton.enabled=NO;
         return NO;
     }
     if([@"Place Units" isEqualToString:self.playerStatusString]) {
         if(self.terr_id!=7) {
-            [ObjectiveCScripts showAlertPopup:@"Place Units" :@"Place your units on your factory. Click Germany to place them, then click 'End Turn'."];
+            [ObjectiveCScripts showAlertPopup:@"Place Units" :@"Place your units on Germany (it has a factory), then click 'End Turn'."];
 			self.actionButton.enabled=NO;
         }
     }
@@ -1129,8 +1131,7 @@
 	NSString *responseStr = [WebServicesFunctions getResponseFromServerUsingPost:webAddr:nameList:valueList];
     NSArray *components = [responseStr componentsSeparatedByString:@"<a>"];
     
-//    NSLog(@"responseStr: %d bytes", [responseStr length]);
-    
+	
     if([responseStr length]<1000)
         NSLog(@"+++ERROR!!: %@", responseStr);
     
@@ -1145,6 +1146,7 @@
     if([parts count]<7)
         return;
     self.playerStatusString = [parts objectAtIndex:1];
+	
     self.gameStatus = [parts objectAtIndex:4];
     NSString *pTurn = [parts objectAtIndex:2];
 
@@ -1182,10 +1184,18 @@
 	self.purchasePiece = [[parts objectAtIndex:28] intValue];
     
     self.takeTurnButton.enabled = YES;
-	if([@"training" isEqualToString:[parts objectAtIndex:20]] && self.playerTurnFlg) {
+	if([@"training" isEqualToString:[parts objectAtIndex:20]] && self.playerTurnFlg)
         self.trainingFlg=YES;
+	
+	NSString *players = [components objectAtIndex:3];
+	NSArray *playerArray = [players componentsSeparatedByString:@"<li>"];
+	NSMutableArray *temp = [[NSMutableArray alloc] init];
+	for(NSString *player in playerArray) {
+		if(player.length>10)
+			[temp addObject:[PlayerObj objectFromLine:player]];
 	}
-    
+	self.gameObj.playerList = temp;
+	
 }
 
 
@@ -1406,19 +1416,19 @@
     }
 	
 	if([@"Purchase" isEqualToString:self.playerStatusString]) {
-        [ObjectiveCScripts showAlertPopup:@"Purchase":@"Your first step in taking a turn is to purchase new units. Press the 'Purchase' Button. These units will then be placed at the end of your turn."];
+        [ObjectiveCScripts showAlertPopup:@"Purchase":@"Press the 'Purchase' Button."];
 		return;
 	}
 	if([@"Attack" isEqualToString:self.playerStatusString]) {
-        [ObjectiveCScripts showAlertPopup:@"Attack":@"Scroll around to see if there are any territories you want to attack. Click on them to begin. Then press 'Done' when done with all attacks."];
+        [ObjectiveCScripts showAlertPopup:@"Attack":@"Click on any territories you want to attack. Then press 'Done' when done with all attacks."];
 		return;
 	}
 	if([@"Move" isEqualToString:self.playerStatusString]) {
-        [ObjectiveCScripts showAlertPopup:@"Move":@"You can now move any units which have not attacked. Also click the 'Move' button for diplomacy options. Finally click 'Place Units' when done moving."];
+        [ObjectiveCScripts showAlertPopup:@"Move":@"You can now move any units then click 'Place Units'."];
 		return;
 	}
 	if([@"Place Units" isEqualToString:self.playerStatusString]) {
-        [ObjectiveCScripts showAlertPopup:@"Place Units":@"You can now place the units that you bought at the beginning of your turn. Place them on a territory that has a factory. Press 'End Turn' when done."];
+        [ObjectiveCScripts showAlertPopup:@"Place Units":@"Place your units, then press 'End Turn'."];
 		return;
 	}
 
@@ -1463,7 +1473,8 @@
     [self dismissDetailView];
     self.showPanelFlg=YES;
 	
-	[self buildMap];
+	[self performSelectorOnMainThread:@selector(buildMap) withObject:nil waitUntilDone:NO];
+//	[self buildMap];
 //    [self executeThreadedJob:@selector(buildMap)];
     
 }
@@ -1491,12 +1502,12 @@
 		}
 		if([@"Attack" isEqualToString:self.playerStatusString]) {
 			if([[ObjectiveCScripts getUserDefaultValue:@"ukraineClick"] length]==0) {
-				[ObjectiveCScripts showAlertPopup:@"First Attack!" :@"For your first attack let's invade Ukraine. Find that country (next to germany) and click on it."];
+				[ObjectiveCScripts showAlertPopup:@"First Attack!" :@"Let's invade Ukraine. Find that country (next to germany) and click on it."];
 			}
 		}
 		if([@"Move" isEqualToString:self.playerStatusString]) {
 			if([[ObjectiveCScripts getUserDefaultValue:@"southernClick"] length]==0) {
-				[ObjectiveCScripts showAlertPopup:@"Movement Phase" :@"You receive a 10 IC bonus every round your Ruler is not on the capital so lets move him to Southern Europe. Find that nation and click on it and move him there."];
+				[ObjectiveCScripts showAlertPopup:@"Movement Phase" :@"Move your Ruler to Southern Europe. You want to keep him off your campital."];
 			}
 		}
 		if([@"Place Units" isEqualToString:self.playerStatusString]) {
@@ -1505,13 +1516,13 @@
 		}
 	}
 	if(self.gameRound==2 && [@"Purchase" isEqualToString:self.playerStatusString]) {
-		[ObjectiveCScripts showAlertPopup:@"Round 2!" :@"Check out where Japan is moving his troops. Then take your next turn and continue pressing towards Russia."];
+		[ObjectiveCScripts showAlertPopup:@"Round 2!" :@"Check out where Japan is moving his troops."];
 	}
 	if(self.gameRound==3 && [@"Purchase" isEqualToString:self.playerStatusString]) {
-		[ObjectiveCScripts showAlertPopup:@"Round 3!" :@"Its always good to have a nice mix of tanks and infantry in your attacks. Infantry are cheaper and will be used first as hits."];
+		[ObjectiveCScripts showAlertPopup:@"Round 3!" :@"Its always good to have a nice mix of tanks and infantry in your attacks."];
 	}
 	if(self.gameRound==4 && [@"Purchase" isEqualToString:self.playerStatusString]) {
-		[ObjectiveCScripts showAlertPopup:@"Round 4!" :@"Factories are important. Try buying one and placing it on your front lines. You can then place troops on it next turn. Also double up factories for added income."];
+		[ObjectiveCScripts showAlertPopup:@"Round 4!" :@"Factories are important. Try buying one and placing it near your front lines. Also double up factories for added income."];
 	}
 	if(self.gameRound==5 && [@"Purchase" isEqualToString:self.playerStatusString]) {
 		[ObjectiveCScripts showAlertPopup:@"Round 5!" :@"Capitals are well defended. Make sure you have lots of tanks and infantry before attacking."];
@@ -1523,7 +1534,7 @@
 		[ObjectiveCScripts showAlertPopup:@"Round 7!" :@"Try attacking Japan where he has a high tank to infantry ratio. Tanks are expensive but defend the same as infantry."];
 	}
 	if(self.gameRound==8 && [@"Purchase" isEqualToString:self.playerStatusString]) {
-		[ObjectiveCScripts showAlertPopup:@"Round 8!" :@"Try claiming all of the brown countries. You income is boosted by 10 IC per turn for each complete superpower you control."];
+		[ObjectiveCScripts showAlertPopup:@"Round 8!" :@"Try claiming all of the brown countries. You income is boosted by 10 IC per turn for each complete Superpower you control."];
 	}
 }
 

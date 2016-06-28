@@ -65,6 +65,7 @@
 @property (nonatomic, strong) IBOutlet UIWebView *mainWebView;
 @property (nonatomic, strong) IBOutlet UILabel *rankLabel;
 @property (nonatomic, strong) IBOutlet UILabel *messageLabel;
+@property (nonatomic, strong) IBOutlet UILabel *announcementLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *rankImageView;
 @property (nonatomic, strong) IBOutlet UIButton *matchMakingButton;
 @property (nonatomic, strong) IBOutlet UIButton *nPlayersButton;

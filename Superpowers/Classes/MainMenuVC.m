@@ -55,6 +55,8 @@
 	
 	[self setTitle:@"Main Menu"];
 	
+
+	
 	retryButton.alpha=0;
 	
 	titleScreen.frame = [[UIScreen mainScreen] bounds];
@@ -253,6 +255,7 @@
 			[ObjectiveCScripts setUserDefaultValue:[NSString stringWithFormat:@"%d", self.loginObj.level] forKey:@"userRank"];
 			
 			self.chatLabel.text = self.loginObj.chatMessage;
+			self.announcementLabel.text = self.loginObj.announementMsg;
 			[self.gamesButton setBackgroundImage:(self.loginObj.numWaiting>0)?[UIImage imageNamed:@"yellowChromeBut.png"]:[UIImage imageNamed:@"blueChromeBut.png"] forState:UIControlStateNormal];
 			
 			if(self.loginObj.level==0)
@@ -272,6 +275,7 @@
 			self.chatView.hidden=self.loginObj.level<=2;
 			self.nPlayersButton.hidden=self.loginObj.level<=2;
 			
+
 			if(self.loginObj.level==2) {
 				[self.gamesButton setTitle:@"Real Game" forState:UIControlStateNormal];
 				self.messageLabel.text = @"Play a single player game first. Then compete against real people!";
@@ -286,6 +290,7 @@
 				detailViewController.loginObj = self.loginObj;
 				[self.navigationController pushViewController:detailViewController animated:YES];
 			}
+
 		}
 	}
 }
@@ -467,11 +472,27 @@
 		[self.navigationController pushViewController:detailViewController animated:YES];
 		return;
 	}
+	self.gamesButton.enabled=NO;
+	[self performSelectorInBackground:@selector(gotoGameScreenBG) withObject:nil];
 
+}
+
+-(void)gotoGameScreenBG {
+	[self performSelectorOnMainThread:@selector(gotoGameScreen) withObject:nil waitUntilDone:YES];
+}
+
+-(void)gotoGameScreen {
+	self.gamesButton.enabled=YES;
 	GamesVC *detailViewController = [[GamesVC alloc] initWithNibName:@"GamesVC" bundle:nil];
 	detailViewController.loginObj=self.loginObj;
 	[self.navigationController pushViewController:detailViewController animated:YES];
 }
+
+
+
+
+
+
 
 -(void)loginButtonClicked:(id)sender {
 	if([[ObjectiveCScripts getUserDefaultValue:@"userName"] length]>0) {

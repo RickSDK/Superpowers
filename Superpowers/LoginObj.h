@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *text_msg;
+@property (nonatomic, strong) NSString *announementMsg;
 @property (nonatomic) int numWaiting;
 
 +(LoginObj *)objectFromLine:(NSString *)line;
