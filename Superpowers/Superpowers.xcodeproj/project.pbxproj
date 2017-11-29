@@ -121,6 +121,10 @@
 		6B3A42E71713C2EB0018A897 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3A42E61713C2EB0018A897 /* iAd.framework */; };
 		6B3A42EB17148ACF0018A897 /* LadderDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A42E917148ACE0018A897 /* LadderDetailsVC.m */; };
 		6B3A42EC17148ACF0018A897 /* LadderDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B3A42EA17148ACF0018A897 /* LadderDetailsVC.xib */; };
+		6B497C0D1FA8113600095AE7 /* StartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B497C0B1FA8113600095AE7 /* StartVC.m */; };
+		6B497C0E1FA8113600095AE7 /* StartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B497C0C1FA8113600095AE7 /* StartVC.xib */; };
+		6B497C111FA8D31900095AE7 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B497C101FA8D31900095AE7 /* PopupView.m */; };
+		6B497C141FA8D32400095AE7 /* PtpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B497C131FA8D32400095AE7 /* PtpButton.m */; };
 		6B6955F51C4B551F004CB475 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B6955F41C4B551F004CB475 /* Default-568h.png */; };
 		6B6955F71C4B553D004CB475 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B6955F61C4B553D004CB475 /* Default-568h@2x.png */; };
 		6B6955F91C4B5555004CB475 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B6955F81C4B5555004CB475 /* Images.xcassets */; };
@@ -492,6 +496,13 @@
 		6B3A42E817148ACE0018A897 /* LadderDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LadderDetailsVC.h; sourceTree = "<group>"; };
 		6B3A42E917148ACE0018A897 /* LadderDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LadderDetailsVC.m; sourceTree = "<group>"; };
 		6B3A42EA17148ACF0018A897 /* LadderDetailsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LadderDetailsVC.xib; sourceTree = "<group>"; };
+		6B497C0A1FA8113600095AE7 /* StartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartVC.h; sourceTree = "<group>"; };
+		6B497C0B1FA8113600095AE7 /* StartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartVC.m; sourceTree = "<group>"; };
+		6B497C0C1FA8113600095AE7 /* StartVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartVC.xib; sourceTree = "<group>"; };
+		6B497C0F1FA8D31900095AE7 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
+		6B497C101FA8D31900095AE7 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
+		6B497C121FA8D32400095AE7 /* PtpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PtpButton.h; sourceTree = "<group>"; };
+		6B497C131FA8D32400095AE7 /* PtpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PtpButton.m; sourceTree = "<group>"; };
 		6B6955F41C4B551F004CB475 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		6B6955F61C4B553D004CB475 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6B6955F81C4B5555004CB475 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Superpowers/Images.xcassets; sourceTree = "<group>"; };
@@ -836,6 +847,9 @@
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* SuperpowersAppDelegate.h */,
 				1D3623250D0F684500981E51 /* SuperpowersAppDelegate.m */,
+				6B497C0A1FA8113600095AE7 /* StartVC.h */,
+				6B497C0B1FA8113600095AE7 /* StartVC.m */,
+				6B497C0C1FA8113600095AE7 /* StartVC.xib */,
 				6B8B8AA41574209B000F0248 /* MainMenuVC.h */,
 				6B8B8AA51574209B000F0248 /* MainMenuVC.m */,
 				6B8B8AA61574209B000F0248 /* MainMenuVC.xib */,
@@ -1333,6 +1347,10 @@
 				6BD4D9391D11CBF100236804 /* UIFont+FontAwesome.m */,
 				6BD4D93A1D11CBF100236804 /* UIImage+FontAwesome.h */,
 				6BD4D93B1D11CBF100236804 /* UIImage+FontAwesome.m */,
+				6B497C121FA8D32400095AE7 /* PtpButton.h */,
+				6B497C131FA8D32400095AE7 /* PtpButton.m */,
+				6B497C0F1FA8D31900095AE7 /* PopupView.h */,
+				6B497C101FA8D31900095AE7 /* PopupView.m */,
 				6BEA905416DAC490003F9809 /* Board.h */,
 				6BEA905516DAC490003F9809 /* Board.m */,
 				6B949AD117823D1500B34FF9 /* SoundsLib.h */,
@@ -1692,6 +1710,7 @@
 				6B2BD2561714F1710075D723 /* Icon-72.png in Resources */,
 				6B2BD2581714F1D60075D723 /* Icon-72@2x.png in Resources */,
 				6BBF8193171F476300B1D4D6 /* DefaultiPad.png in Resources */,
+				6B497C0E1FA8113600095AE7 /* StartVC.xib in Resources */,
 				6BBF8195171F478700B1D4D6 /* Default-Portrait~ipad.png in Resources */,
 				6BA4AA8D173490AE006022E1 /* UnitListVC.xib in Resources */,
 				6BA4AA921735AD18006022E1 /* RulesVC.xib in Resources */,
@@ -1745,6 +1764,7 @@
 				6BD774EA1CD966D30073685E /* DiplomacyCell.m in Sources */,
 				6B6955FD1C4B5755004CB475 /* GameObj.m in Sources */,
 				6BC9A6121CF4D90E00604C28 /* LoginObj.m in Sources */,
+				6B497C111FA8D31900095AE7 /* PopupView.m in Sources */,
 				6B8B8B83157546D4000F0248 /* NSDate+ATTDate.m in Sources */,
 				6BC9FA4C1CD27FFE00BC0799 /* ForumsVC.m in Sources */,
 				6B8B8B84157546D4000F0248 /* NSArray+ATTArray.m in Sources */,
@@ -1774,6 +1794,7 @@
 				6BC8619816CAEBAC009DD96F /* AttackVC.m in Sources */,
 				6BC8619D16CAED54009DD96F /* MovementVC.m in Sources */,
 				6BC861A216CAEEAA009DD96F /* PlaceUnitsVC.m in Sources */,
+				6B497C141FA8D32400095AE7 /* PtpButton.m in Sources */,
 				6BCC1F1C16CC0DF20056CB17 /* SBCBuildVC.m in Sources */,
 				6BD774E61CD928040073685E /* DiplomacyVC.m in Sources */,
 				6BDABD9816CC3C05007CF022 /* ListPickerVC.m in Sources */,
@@ -1800,6 +1821,7 @@
 				6BB809A61D02069200ADAD99 /* HistoryVC.m in Sources */,
 				6BA44B87174B011900C90ACA /* BugReportVC.m in Sources */,
 				6BA44BAE174C46E000C90ACA /* MoveUnitsVC.m in Sources */,
+				6B497C0D1FA8113600095AE7 /* StartVC.m in Sources */,
 				6BA44BB71755891000C90ACA /* AttackBoardVC.m in Sources */,
 				6B94998317790C6E00B34FF9 /* ChooseNationVC.m in Sources */,
 				6BC9A6211CF65FCE00604C28 /* UserCell.m in Sources */,

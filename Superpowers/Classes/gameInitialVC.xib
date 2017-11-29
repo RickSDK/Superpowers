@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1911" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -12,16 +12,13 @@
                 <outlet property="activityLabel" destination="629" id="630"/>
                 <outlet property="activityPopup" destination="628" id="631"/>
                 <outlet property="aiButton" destination="Kng-Vb-XUc" id="JTL-ii-2Xn"/>
-                <outlet property="alliesButton" destination="968-t6-ZYi" id="bhH-Q0-Umy"/>
                 <outlet property="attRoundLabel" destination="737" id="740"/>
-                <outlet property="chatButton" destination="YhY-a4-Klo" id="rGy-JI-dry"/>
+                <outlet property="chatButton" destination="3c4-Vz-p76" id="1j5-Ex-Tfz"/>
                 <outlet property="gametypeLabel" destination="738" id="741"/>
-                <outlet property="logsButton" destination="M7P-f9-7LK" id="UH6-em-lsx"/>
                 <outlet property="mainTableView" destination="722" id="725"/>
                 <outlet property="mapButton" destination="727" id="746"/>
                 <outlet property="roundLabel" destination="179" id="655"/>
                 <outlet property="surrenderButton" destination="h2J-zU-mv6" id="dDJ-ck-rWD"/>
-                <outlet property="techButton" destination="hgI-km-aOh" id="JMf-KD-6nC"/>
                 <outlet property="timerLabel" destination="739" id="742"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -138,72 +135,6 @@
                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <size key="shadowOffset" width="1" height="1"/>
                 </label>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="701">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.86413043479999996" green="0.75708302220000001" blue="0.089375510680000006" alpha="1" colorSpace="calibratedRGB"/>
-                    <items>
-                        <barButtonItem style="plain" id="kB0-NC-cgV">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M7P-f9-7LK">
-                                <rect key="frame" x="12" y="6" width="50" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Logs" backgroundImage="blueChromeBut.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logsButtonClicked:" destination="-1" eventType="touchDown" id="fAY-Pv-dV4"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="708"/>
-                        <barButtonItem style="plain" id="ub1-51-BG0">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hgI-km-aOh">
-                                <rect key="frame" x="81" y="6" width="90" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Technology" backgroundImage="blueChromeBut.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="techButtonClicked:" destination="-1" eventType="touchDown" id="epM-ja-vN0"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="707"/>
-                        <barButtonItem style="plain" id="TI2-HW-eoP">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="968-t6-ZYi">
-                                <rect key="frame" x="189" y="6" width="50" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Allies" backgroundImage="blueChromeBut.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="alliesButtonClicked:" destination="-1" eventType="touchDown" id="c8G-gd-3Ch"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="706"/>
-                        <barButtonItem style="plain" id="aaA-4K-bmp">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YhY-a4-Klo">
-                                <rect key="frame" x="258" y="6" width="50" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Chat">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="chatButtonClicked:" destination="-1" eventType="touchDown" id="bKN-72-B9b"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </items>
-                    <color key="tintColor" red="0.86413043479999996" green="0.75708302220000001" blue="0.089375510680000006" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="barTintColor" red="0.86413043479999996" green="0.75708302220000001" blue="0.089375510680000006" alpha="1" colorSpace="calibratedRGB"/>
-                </toolbar>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" id="738">
                     <rect key="frame" x="203" y="42" width="111" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -279,12 +210,12 @@
                                 <action selector="statsButtonClicked:" destination="-1" eventType="touchDown" id="Ruj-17-UCj"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="727">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="727" customClass="PtpButton">
                             <rect key="frame" x="99" y="9" width="123" height="74"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <size key="titleShadowOffset" width="1" height="1"/>
-                            <state key="normal" title="View Map" backgroundImage="blueChromeBut.png">
+                            <state key="normal" title="Map">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -299,10 +230,10 @@
                     <rect key="frame" x="0.0" y="284" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J3v-LD-Y5c">
-                            <rect key="frame" x="8" y="-2" width="161" height="44"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J3v-LD-Y5c" customClass="PtpButton">
+                            <rect key="frame" x="8" y="2" width="161" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Account Sit" backgroundImage="purpleChromeBut.png">
+                            <state key="normal" title="Account Sit">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -323,6 +254,53 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" id="pzq-el-KBo">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3of-V0-41k" customClass="PtpButton">
+                            <rect key="frame" x="4" y="4" width="72" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Logs">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="logsButtonClicked:" destination="-1" eventType="touchDown" id="n7W-NG-0Eb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UpM-9U-Yt9" customClass="PtpButton">
+                            <rect key="frame" x="84" y="4" width="72" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Tech">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="techButtonClicked:" destination="-1" eventType="touchDown" id="IRE-Ji-Hkm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1TP-cs-d55" customClass="PtpButton">
+                            <rect key="frame" x="164" y="4" width="72" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Allies">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="alliesButtonClicked:" destination="-1" eventType="touchDown" id="ahe-J1-yRa"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3c4-Vz-p76" customClass="PtpButton">
+                            <rect key="frame" x="244" y="4" width="72" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Chat">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="chatButtonClicked:" destination="-1" eventType="touchDown" id="2Tb-54-Y2p"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -332,8 +310,6 @@
     <resources>
         <image name="activityPopup.png" width="300" height="160"/>
         <image name="bg_gray.jpg" width="1268" height="738"/>
-        <image name="blueChromeBut.png" width="400" height="100"/>
-        <image name="purpleChromeBut.png" width="400" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

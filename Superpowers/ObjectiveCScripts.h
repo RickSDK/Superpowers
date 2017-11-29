@@ -29,6 +29,8 @@
 +(NSString *)convertIntToMoneyString:(int)money;
 +(void)setUserDefaultValue:(NSString *)value forKey:(NSString *)key;
 +(NSString *)getUserDefaultValue:(NSString *)key;
++(UIColor *)primaryButtonColor;
++(UIColor *)themeBGColor;
 +(void)showAlertPopup:(NSString *)title:(NSString *)message;
 +(void)showAlertPopupWithDelegate:(NSString *)title:(NSString *)message:(id)delegate;
 +(void)showConfirmationPopup:(NSString *)title:(NSString *)message:(id)delegate;

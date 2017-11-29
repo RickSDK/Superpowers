@@ -34,7 +34,7 @@
 	NSURL *url = [NSURL URLWithString:self.weblink];
 	NSString *page = [WebServicesFunctions getResponseFromWeb:self.weblink];
 	[self.mainWebView loadHTMLString:page baseURL:url];
-	[NSThread sleepForTimeInterval:0];
+//	[NSThread sleepForTimeInterval:0];
 	
 	self.activityPopup.alpha=0;
 	self.activityLabel.alpha=0;

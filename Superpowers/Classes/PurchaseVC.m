@@ -261,6 +261,16 @@
     [self showPurchases];
 }
 
+- (IBAction) autoBuyButtonClicked: (id) sender {
+	int numTanks = self.currentMoney/10;
+	if(numTanks>0)
+		[self addPurchase:3:numTanks];
+	while (self.currentMoney>=3) {
+		[self addPurchase:2:1];
+	}
+	NSLog(@"+++%d", self.currentMoney);
+}
+
 -(void)addUnit:(int)rowNumber:(int)amount {
     int pieceNum = [self mappButtonToPiece:rowNumber];
     [self addPurchase:pieceNum:amount];

@@ -15,21 +15,26 @@
 
 +(NSString *)getResponseFromWeb:(NSString *)webAddressLink
 {
+	NSLog(@"getResponseFromWeb %@", webAddressLink);
 	
 	NSURL *url = [NSURL URLWithString:[webAddressLink stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
 	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url
-												  cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 40];
+												  cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 10];
 
-	NSData *response=nil;
-   response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+//	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:webAddressLink]];
+   NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 
-	if(response.length==0) { // Try again!!!
-		[NSThread sleepForTimeInterval:1];
+	int count=0;
+	while (response.length==0 && count<100) { // Try again!!!
+		count++;
+		NSLog(@"no response!!! #%d", count);
+		[NSThread sleepForTimeInterval:3];
 		response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 	}
 	NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 	
 	return responseString;
+	
 }
 
 +(NSString *)formatEmailForUrl:(NSString *)email

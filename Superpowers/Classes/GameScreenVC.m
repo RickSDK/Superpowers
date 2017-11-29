@@ -62,7 +62,7 @@
 	
 	self.purchaseLockFlg = [[NSString alloc] init];
 	
-	self.takeTurnButton = [ObjectiveCScripts navigationButtonWithTitle:@"Hide" selector:@selector(hideButtonClicked) target:self];
+	self.takeTurnButton = [ObjectiveCScripts navigationButtonWithTitle:@"View" selector:@selector(hideButtonClicked) target:self];
 	self.navigationItem.rightBarButtonItem = self.takeTurnButton;
 	
 	NSArray *components = [self.gameDetailsString componentsSeparatedByString:@"|"];
@@ -74,9 +74,11 @@
 	self.bottomGrayToolBar.hidden=YES;
 	
 	self.mainScrollView.contentSize = CGSizeMake(1768, 1040);
-//	UIImage *boardImg = [UIImage imageNamed:@"board1800.jpg"];
-//	UIImageView *boardImgView = [[UIImageView alloc] initWithImage:boardImg];
-//	[self.mainScrollView addSubview:boardImgView];
+	self.territoryDetailView.layer.masksToBounds = NO;
+	self.territoryDetailView.layer.shadowOffset = CGSizeMake(15, 15);
+	self.territoryDetailView.layer.shadowRadius = 5;
+	self.territoryDetailView.layer.shadowOpacity = 0.8;
+
 	
 	
 	UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapGridTapped:)];
@@ -93,32 +95,6 @@
 }
 
 
-
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.hueColors = [NSMutableArray array];
-        
-        for (int i = 0 ; i < 12; i++) {
-            CGFloat hue = i * 30 / 360.0;
-            int colorCount = 24;
-            for (int x = 0; x < colorCount; x++) {
-                int row = x / 4;
-                int column = x % 4;
-                
-                CGFloat saturation = column * 0.25 + 0.25;
-                CGFloat luminosity = 1.0 - row * 0.12;
-                UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:luminosity alpha:1.0];
-                [self.hueColors addObject:color];
-            }
-        }
-        // Custom initialization
-    }
-    return self;
-}
-*/
 -(void)positionWebScreen:(int)type
 {
 	if(type==0) {
@@ -147,10 +123,12 @@
 }
 
 -(void)hideButtonClicked {
-	self.bottomToolBar.hidden=!self.topToolBar.hidden;
-	self.bottomGrayToolBar.hidden=!self.topToolBar.hidden;
-	self.statusView.hidden=!self.topToolBar.hidden;
-	self.topToolBar.hidden=!self.topToolBar.hidden;
+	self.bottomToolBar.hidden=!self.bottomToolBar.hidden;
+	self.bottomGrayToolBar.hidden=self.bottomToolBar.hidden;
+	self.statusView.hidden=self.bottomToolBar.hidden;
+	self.topToolBar.hidden=self.bottomToolBar.hidden;
+	self.mainTableView.hidden=self.bottomToolBar.hidden;
+	self.diplomacyView.hidden=self.bottomToolBar.hidden;
 }
 
 -(void)showTopBar {
@@ -163,15 +141,8 @@
         self.completeButton.enabled=NO;
         return;
     }
-//    self.topRound1Label.alpha=1;
-  //  self.topRound2Label.alpha=1;
-//    self.topAttack1Label.alpha=1;
-//    self.topAttack2Label.alpha=1;
-//    self.topNationImg.alpha=1;
-//    self.topBGImg.alpha=1;
 	self.topToolBar.hidden=!self.playerTurnFlg;
 	
-    self.mainTableView.alpha=1;
     [self positionTableView];
     
     self.undoButton.enabled=YES;
@@ -222,7 +193,7 @@
 		self.diplomacyView.hidden=self.placeUnitType==0;
 		if(self.placeUnitType==0 && self.leaderInCapital) {
 			[self.diplomacyButton setBackgroundImage:[UIImage imageNamed:@"piece11.gif"] forState:UIControlStateNormal];
-			self.diplomacyLabel.text = @"Move Leader!";
+			self.diplomacyLabel.text = @"Move National Ruler!";
 			self.diplomacyView.hidden=NO;
 		}
 		NSString *purchaseImg = [NSString stringWithFormat:@"piece%d.gif", self.purchasePiece];
@@ -287,32 +258,23 @@
 
  
     [self showTopBar];
-
-    if(self.trainingFlg)
+	
+	if(self.trainingFlg) {
         self.bottomToolBar.hidden=YES;
+	}
+}
+
+-(void)updateTrainingMessage:(NSString *)message {
+	[self.trainingHelpMessage performSelectorOnMainThread:@selector(setText:) withObject:message waitUntilDone:NO];
+	self.trainingHelpView.hidden=NO;
 }
 
 -(void)dismissButtons {
     [self.takeTurnButton setTitle:@"Show Bar"];
     self.showPanelFlg=NO;
     self.detailActionButton.alpha=0;
-
-//    self.purchasessButton.alpha=0;
-//    self.topRound1Label.alpha=0;
-//    self.topRound2Label.alpha=0;
-//    self.topAttack1Label.alpha=0;
-//    self.topAttack2Label.alpha=0;
-//    self.topNationImg.alpha=0;
-//    self.topBGImg.alpha=0;
-
- //   self.logsButton.alpha=0;
- //   self.TechButton.alpha=0;
- //   self.alliesButton.alpha=0;
- //   self.chatButton.alpha=0;
     self.topToolBar.hidden=YES;
     self.bottomToolBar.hidden=YES;
-
-    self.mainTableView.alpha=0;
 }
 
 -(void)gotoView:(int)screenNum {
@@ -365,7 +327,7 @@
 	}
 	if([@"Place Units" isEqualToString:self.playerStatusString]) {
 		if(self.placeUnitType==0 && self.leaderInCapital) {
-			[ObjectiveCScripts showAlertPopup:@"Move Leader" :@"Move your Nation Ruler off your capital to increase your income." ];
+			[ObjectiveCScripts showAlertPopup:@"Move National Ruler" :@"Move your Nation Ruler off your capital to increase your income." ];
 		}
 		if(self.placeUnitType==1)
 			[ObjectiveCScripts showAlertPopup:@"Place Sea Units" :@"Click on a water space next to one of your factories to place sea units." ];
@@ -383,11 +345,6 @@
 	detailViewController.callBackViewController=self;
 	[self.navigationController pushViewController:detailViewController animated:YES];
 
-//	PlayerAttackVC *detailViewController = [[PlayerAttackVC alloc] initWithNibName:@"PlayerAttackVC" bundle:nil];
-//	detailViewController.gameId = self.gameId;
-//	detailViewController.callBackViewController=self;
-//	detailViewController.mode=9;
-//	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 - (IBAction) diplomacyXButtonClicked: (id) sender {
@@ -396,7 +353,7 @@
 
 -(void)redoAction {
 	@autoreleasepool {
-
+		self.undoButton.enabled=NO;
         if([@"Attack" isEqualToString:self.playerStatusString]) {
             NSArray *nameList = [NSArray arrayWithObjects:@"game_id", nil];
             NSArray *valueList = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", self.gameId], nil];
@@ -570,7 +527,10 @@
         
     }
     if([self.playerStatusString isEqualToString:@"Attack"]) {
-        
+		if(self.gameObj.battleZoneNumber>0 && self.gameObj.battleZoneNumber != self.terr_id) {
+			[ObjectiveCScripts showAlertPopup:@"Notice!" :[NSString stringWithFormat:@"You have started a battle in %@. You must finish that battle first.", self.gameObj.battleZoneName]];
+			return;
+		}
         if(self.attackZone != self.terrHardId) {
         if(self.gameRound<self.attackRound && [self.dipomacyString length]>0) {
             [ObjectiveCScripts showAlertPopup:@"Notice!" :[NSString stringWithFormat:@"You cannot attack other players until round %d.", self.attackRound]];
@@ -742,47 +702,52 @@
 	
    if([[ObjectiveCScripts getUserDefaultValue:@"germanyClick"] length]==0) {
 	   if(self.terr_id==0) {
-		   [ObjectiveCScripts showAlertPopup:@"Initial Turn" :@"The board is a map of the world. Scroll around and find Germany. That is your capital. Click on it."];
+		   [self updateTrainingMessage:@"The board is a map of the world. Scroll around and find Germany. That is your capital. Click on it."];
+		   //[ObjectiveCScripts showAlertPopup:@"Initial Turn" :@"The board is a map of the world. Scroll around and find Germany. That is your capital. Click on it."];
 		   return NO;
 	   }
         if(self.terr_id==7) {
             [ObjectiveCScripts showAlertPopup:@"Good work!" :@"You control all the gray countries of the European Union. Next find and click on Japan."];
             [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"germanyClick"];
+			[self updateTrainingMessage:@"Find and click on Japan."];
             return YES;
         } else {
-            [ObjectiveCScripts showAlertPopup:@"Sorry" :@"Find Germany and click on it"];
+            [ObjectiveCScripts showAlertPopup:@"Sorry" :@"Find Germany and click on it. You must click on the flag."];
             return NO;
         }
     } //<-- germanyClick
     if([[ObjectiveCScripts getUserDefaultValue:@"japanClick"] length]==0) {
         if(self.terr_id==21) {
             [ObjectiveCScripts showAlertPopup:@"Good work!" :@"Your first goal is to invade and conquer Russia. Now find Russia on the map and click on it."];
+			[self updateTrainingMessage:@"Find and click on Russia."];
             [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"japanClick"];
             return YES;
         } else {
-            [ObjectiveCScripts showAlertPopup:@"Sorry" :@"Find Japan and click on it"];
+            [ObjectiveCScripts showAlertPopup:@"Sorry" :@"Find Japan and click on it. You must click on the flag."];
             return NO;
         }
     } //<-- germanyClick
     if([[ObjectiveCScripts getUserDefaultValue:@"russiaClick"] length]==0) {
         if(self.terr_id==13) {
             [ObjectiveCScripts showAlertPopup:@"Good work!" :@"You also want to take over Indo China, so find that nation and click on it."];
+			[self updateTrainingMessage:@"Find and click on Indo China."];
             [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"russiaClick"];
             return YES;
         } else {
-            [ObjectiveCScripts showAlertPopup:@"Sorry" :@"Find Russia and click on it"];
+            [ObjectiveCScripts showAlertPopup:@"Sorry" :@"Find Russia and click on it. You must click on the flag."];
             return NO;
         }
     } //<-- russiaClick
     if([[ObjectiveCScripts getUserDefaultValue:@"indoClick"] length]==0) {
         if(self.terr_id==28) {
             [ObjectiveCScripts showAlertPopup:@"Good work!" :@"Click on the 'Purchase' button to purchase units. Tanks and infantry are going to be best for this game."];
+			[self updateTrainingMessage:@"Click on the 'Purchase' button."];
             [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"indoClick"];
             self.takeTurnButton.enabled=YES;
 			self.actionButton.enabled=YES;
             return YES;
         } else {
-            [ObjectiveCScripts showAlertPopup:@"Sorry" :@"Find Indo China and click on it. (South of China)."];
+            [ObjectiveCScripts showAlertPopup:@"Sorry" :@"Find Indo China and click on it. (South of China). You must click on the flag."];
             return NO;
         }
     } //<-- indoClick
@@ -791,7 +756,8 @@
     
     if([@"Attack" isEqualToString:self.playerStatusString]) {
         if([[ObjectiveCScripts getUserDefaultValue:@"ukraineClick"] length]==0) {
-            if(self.terr_id==62) {
+			[self updateTrainingMessage:@"Find Ukraine and click on it."];
+           if(self.terr_id==62) {
                 [ObjectiveCScripts showAlertPopup:@"Good work!" :@"Click the attack button and send in all your tanks and infantry, plus your general."];
                 [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"ukraineClick"];
                 self.takeTurnButton.enabled=YES;
@@ -805,14 +771,17 @@
                 return NO;
             }
         }
-        [ObjectiveCScripts showAlertPopup:@"Attacks Done" :@"You are done with attacks for this round so click the 'Done' button."];
-		self.actionButton.enabled=NO;
-		
-        return NO;
+		if(self.terr_id!=62) {
+			[ObjectiveCScripts showAlertPopup:@"Attacks Done" :@"You are done with attacks for this round so click the 'Done' button."];
+			self.actionButton.enabled=NO;
+			return NO;
+		}
+        return YES;
     }
 
     if([@"Move" isEqualToString:self.playerStatusString]) {
         if([[ObjectiveCScripts getUserDefaultValue:@"southernClick"] length]==0) {
+			[self updateTrainingMessage:@"Send your Ruler to Southern Europe."];
             if(self.terr_id==12) {
                 [ObjectiveCScripts showAlertPopup:@"Good work!" :@"Send your Ruler to Southern Europe if he is still in Germany by clicking the 'Move Here' button."];
                 [ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"southernClick"];
@@ -824,6 +793,7 @@
                 return NO;
             }
         }
+		[self updateTrainingMessage:@"Press the 'Place Units' button."];
         [ObjectiveCScripts showAlertPopup:@"Movement Done" :@"Press the 'Place Units' button."];
 		self.actionButton.enabled=NO;
 		self.undoButton.enabled=NO;
@@ -831,6 +801,7 @@
     }
     if([@"Place Units" isEqualToString:self.playerStatusString]) {
         if(self.terr_id!=7) {
+			[self updateTrainingMessage:@"Place your units on Germany."];
             [ObjectiveCScripts showAlertPopup:@"Place Units" :@"Place your units on Germany (it has a factory), then click 'End Turn'."];
 			self.actionButton.enabled=NO;
         }
@@ -857,7 +828,7 @@
     if(self.terr_id>0 && [self.territoryArray count]>self.terr_id) {
         NSString *name = [Board getNationNameFromId:self.terr_id];
         NSString *terrString = [self.territoryArray objectAtIndex:self.terr_id];
- //       NSLog(@"terrString: %@", terrString);
+        NSLog(@"terrString: %@", terrString);
         
         NSArray *components = [terrString componentsSeparatedByString:@"|"];
         if([components count]<2)
@@ -1182,11 +1153,16 @@
 	self.purchase_done_flg = [@"Y" isEqualToString:[parts objectAtIndex:26]];
 	self.noRetreatFlg = [@"Y" isEqualToString:[parts objectAtIndex:27]];
 	self.purchasePiece = [[parts objectAtIndex:28] intValue];
-    
+	self.gameObj.battleZoneNumber = [[parts objectAtIndex:29] intValue];
+	self.gameObj.battleZoneName = [parts objectAtIndex:30];
+
     self.takeTurnButton.enabled = YES;
 	if([@"training" isEqualToString:[parts objectAtIndex:20]] && self.playerTurnFlg)
         self.trainingFlg=YES;
-	
+
+	NSLog(@"self.trainingFlg: %@", (self.trainingFlg)?@"Y":@"N");
+	self.trainingHelpView.hidden=!self.trainingFlg;
+
 	NSString *players = [components objectAtIndex:3];
 	NSArray *playerArray = [players componentsSeparatedByString:@"<li>"];
 	NSMutableArray *temp = [[NSMutableArray alloc] init];
@@ -1486,10 +1462,23 @@
 }
 
 -(void)checkTrainingMessages {
+	if([@"Purchase" isEqualToString:self.playerStatusString]) {
+		[self updateTrainingMessage:@"Press 'Purchase' button."];
+	}
+	if([@"Attack" isEqualToString:self.playerStatusString]) {
+		[self updateTrainingMessage:@"Click on a country to attack, or press 'Done'."];
+	}
+	if([@"Move" isEqualToString:self.playerStatusString]) {
+		[self updateTrainingMessage:@"Move units, then press 'Place Units'."];
+	}
+	if([@"Place Units" isEqualToString:self.playerStatusString]) {
+		[self updateTrainingMessage:@"Place units on your factory, then press 'End Turn'."];
+	}
 	
 	if([@"Won" isEqualToString:self.playerStatusString]) {
 		self.buttonNumber=99;
-		[ObjectiveCScripts showAlertPopupWithDelegate:@"Congratulations!" :@"You haved earned the rank of private and can now play real games" :self];
+		[self updateTrainingMessage:@"You have won!"];
+		[ObjectiveCScripts showAlertPopupWithDelegate:@"Congratulations!" :@"You haved earned the rank of private and can now play real games." :self];
 		
 		return;
 	}
@@ -1499,18 +1488,23 @@
 		
 		
 		if([@"Purchase" isEqualToString:self.playerStatusString]) {
+			[self updateTrainingMessage:@"Press purchase button."];
 		}
 		if([@"Attack" isEqualToString:self.playerStatusString]) {
 			if([[ObjectiveCScripts getUserDefaultValue:@"ukraineClick"] length]==0) {
+				[self updateTrainingMessage:@"Click on Ukraine to attack."];
 				[ObjectiveCScripts showAlertPopup:@"First Attack!" :@"Let's invade Ukraine. Find that country (next to germany) and click on it."];
 			}
 		}
 		if([@"Move" isEqualToString:self.playerStatusString]) {
+			[self updateTrainingMessage:@"Move units, then press done."];
 			if([[ObjectiveCScripts getUserDefaultValue:@"southernClick"] length]==0) {
+				[self updateTrainingMessage:@"Move your Ruler to Southern Europe."];
 				[ObjectiveCScripts showAlertPopup:@"Movement Phase" :@"Move your Ruler to Southern Europe. You want to keep him off your campital."];
 			}
 		}
 		if([@"Place Units" isEqualToString:self.playerStatusString]) {
+			[self updateTrainingMessage:@"Place units on germany, then press 'End Turn'."];
 			self.undoButton.enabled=NO;
 			self.actionButton.enabled=NO;
 		}
@@ -1549,6 +1543,9 @@
     [self showButtons];
 }
 
+- (IBAction) trainingXButtonClicked: (id) sender {
+	self.trainingHelpView.hidden=YES;
+}
 - (IBAction) moreButtonClicked: (id) sender {
 	self.bottomGrayToolBar.hidden=!self.bottomGrayToolBar.hidden;
 }

@@ -12,6 +12,7 @@
 #import "WebServiceView.h"
 #import "CustomSegment.h"
 #import "GameObj.h"
+#import "PopupView.h"
 
 @interface TemplateVC : UIViewController
 
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet CustomSegment *mainSegment;
 
 @property (strong, nonatomic) IBOutlet WebServiceView *webServiceView;
+@property (strong, nonatomic) IBOutlet PopupView *popupInfoView;
 @property (strong, nonatomic) IBOutlet UIView *popupView;
 @property (strong, nonatomic) NSMutableArray *webServiceElements;
 @property (strong, nonatomic) NSMutableArray *textFieldElements;

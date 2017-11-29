@@ -14,6 +14,8 @@
 	LoginObj *obj = [LoginObj new];
 	NSArray *components = [line componentsSeparatedByString:@"|"];
 	if(components.count>17) {
+		NSLog(@"+++components: %@", [components objectAtIndex:0]);
+
 		obj.successFlg = [@"Superpowers" isEqualToString:[components objectAtIndex:0]];
 		obj.level = [[components objectAtIndex:1] intValue];
 		obj.user_id = [[components objectAtIndex:2] intValue];
@@ -34,6 +36,9 @@
 		obj.numWaiting = [[components objectAtIndex:16] intValue];
 		obj.announementMsg = [components objectAtIndex:17];
 	}
+	if(obj.successFlg)
+		NSLog(@"+++YES!: %d", components.count);
+
 	return obj;
 }
 

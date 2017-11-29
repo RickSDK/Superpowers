@@ -499,6 +499,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	return;
 	PlayerObj *playerObj = [self.gameObj.playerList objectAtIndex:indexPath.row];
 	
 	if(playerObj.user_id != 30) {

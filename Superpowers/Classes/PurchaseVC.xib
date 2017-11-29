@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1911" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -10,6 +10,7 @@
                 <outlet property="activityIndicator" destination="1380" id="1381"/>
                 <outlet property="activityLabel" destination="1379" id="1382"/>
                 <outlet property="activityPopup" destination="1378" id="1383"/>
+                <outlet property="autoPurchaseButton" destination="QXd-1C-19Z" id="IOi-1c-QcK"/>
                 <outlet property="balisticsButton" destination="756" id="1054"/>
                 <outlet property="clearButton" destination="44" id="1055"/>
                 <outlet property="completeButton" destination="51" id="1056"/>
@@ -40,22 +41,29 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+            <rect key="frame" x="0.0" y="44" width="320" height="524"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="4">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QXd-1C-19Z" customClass="PtpButton">
+                    <rect key="frame" x="65" y="471" width="190" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <state key="normal" title="Auto Purchase">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="autoBuyButtonClicked:" destination="-1" eventType="touchDown" id="HYZ-Y0-yCu"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" id="3DY-Ph-txi">
-                    <rect key="frame" x="0.0" y="-6" width="320" height="443"/>
+                    <rect key="frame" x="0.0" y="-6" width="320" height="469"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1384">
-                            <rect key="frame" x="131" y="416" width="172" height="27"/>
+                            <rect key="frame" x="131" y="417" width="172" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <size key="titleShadowOffset" width="1" height="1"/>
-                            <state key="normal" title="View Technologies" backgroundImage="whiteChromeBut.png">
+                            <state key="normal" title="View Technologies">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -100,11 +108,11 @@
                     <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <size key="shadowOffset" width="1" height="1"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="44">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="44" customClass="PtpButton">
                     <rect key="frame" x="15" y="15" width="118" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Clear All" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="Clear All">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -112,11 +120,11 @@
                         <action selector="clearButtonClicked:" destination="-1" eventType="touchDown" id="1075"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="51">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="51" customClass="PtpButton">
                     <rect key="frame" x="20" y="82" width="118" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Complete" backgroundImage="greenChromeBut.png">
+                    <state key="normal" title="Complete">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -124,17 +132,17 @@
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="90">
-                    <rect key="frame" x="11" y="138" width="300" height="269"/>
+                    <rect key="frame" x="11" y="174" width="300" height="194"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="277">
-                    <rect key="frame" x="172" y="315" width="60" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="277" customClass="PtpButton">
+                    <rect key="frame" x="172" y="317" width="60" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Buy" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="Buy">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -154,11 +162,11 @@
                         <action selector="info4ButtonClicked:" destination="-1" eventType="touchDown" id="1080"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="284">
-                    <rect key="frame" x="240" y="315" width="60" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="284" customClass="PtpButton">
+                    <rect key="frame" x="240" y="317" width="60" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="x 5" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="x 5">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -166,11 +174,11 @@
                         <action selector="multiBuy4ButtonClicked:" destination="-1" eventType="touchDown" id="1084"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="574">
-                    <rect key="frame" x="172" y="270" width="60" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="574" customClass="PtpButton">
+                    <rect key="frame" x="172" y="272" width="60" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Buy" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="Buy">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -190,11 +198,11 @@
                         <action selector="info3ButtonClicked:" destination="-1" eventType="touchDown" id="1079"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="576">
-                    <rect key="frame" x="240" y="270" width="60" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="576" customClass="PtpButton">
+                    <rect key="frame" x="240" y="272" width="60" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="x 5" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="x 5">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -202,11 +210,11 @@
                         <action selector="multiBuy3ButtonClicked:" destination="-1" eventType="touchDown" id="1083"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="598">
-                    <rect key="frame" x="172" y="225" width="60" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="598" customClass="PtpButton">
+                    <rect key="frame" x="172" y="227" width="60" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Buy" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="Buy">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -226,11 +234,11 @@
                         <action selector="info2ButtonClicked:" destination="-1" eventType="touchDown" id="1078"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="600">
-                    <rect key="frame" x="240" y="225" width="60" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="600" customClass="PtpButton">
+                    <rect key="frame" x="240" y="227" width="60" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="x 5" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="x 5">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -238,11 +246,11 @@
                         <action selector="multiBuy2ButtonClicked:" destination="-1" eventType="touchDown" id="1082"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="623">
-                    <rect key="frame" x="172" y="180" width="60" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="623" customClass="PtpButton">
+                    <rect key="frame" x="172" y="182" width="60" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Buy" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="Buy">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -262,11 +270,11 @@
                         <action selector="info1ButtonClicked:" destination="-1" eventType="touchDown" id="1077"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="625">
-                    <rect key="frame" x="240" y="180" width="60" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="625" customClass="PtpButton">
+                    <rect key="frame" x="240" y="182" width="60" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="x 5" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="x 5">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -317,11 +325,11 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="729">
-                    <rect key="frame" x="0.0" y="367" width="107" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="729" customClass="PtpButton">
+                    <rect key="frame" x="2" y="369" width="103" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Technology" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="Technology">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -329,11 +337,11 @@
                         <action selector="techButtonClicked:" destination="-1" eventType="touchDown" id="1090"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="748">
-                    <rect key="frame" x="107" y="367" width="107" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="748" customClass="PtpButton">
+                    <rect key="frame" x="109" y="369" width="103" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Railway" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="Railway">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -341,11 +349,11 @@
                         <action selector="railwayButtonClicked:" destination="-1" eventType="touchDown" id="1085"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="756">
-                    <rect key="frame" x="213" y="367" width="107" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="756" customClass="PtpButton">
+                    <rect key="frame" x="215" y="369" width="103" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <size key="titleShadowOffset" width="1" height="1"/>
-                    <state key="normal" title="Anti-Balistics" backgroundImage="yellowChromeBut.png">
+                    <state key="normal" title="Anti-Balistics">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -385,23 +393,19 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="Default.png" width="320" height="483"/>
         <image name="activityPopup.png" width="300" height="160"/>
-        <image name="greenChromeBut.png" width="400" height="100"/>
         <image name="piece1.gif" width="60" height="60"/>
         <image name="piece15.gif" width="50" height="56"/>
         <image name="piece2.gif" width="65" height="65"/>
         <image name="piece3.gif" width="65" height="65"/>
         <image name="wb.png" width="369" height="58"/>
-        <image name="whiteChromeBut.png" width="400" height="100"/>
-        <image name="yellowChromeBut.png" width="400" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

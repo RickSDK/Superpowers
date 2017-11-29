@@ -29,6 +29,7 @@
 		height=1000;
 	
 	self.popupView.hidden=YES;
+	self.popupInfoView.hidden=(self.popupInfoView.tag==0);
 
 	
 	UIImageView *bg = [[UIImageView alloc] initWithFrame:CGRectMake(-200, -200, width, height)];

@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-#import "MainMenuVC.h"
+#import "StartVC.h"
 
 
 @interface RootViewController ()
@@ -29,8 +29,7 @@
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
    
-	MainMenuVC *detailViewController = [[MainMenuVC alloc] initWithNibName:@"MainMenuVC" bundle:nil];
-	detailViewController.showDisolve=YES;
+	StartVC *detailViewController = [[StartVC alloc] initWithNibName:@"StartVC" bundle:nil];
 	[self.navigationController pushViewController:detailViewController animated:NO];
 	
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];

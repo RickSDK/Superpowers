@@ -24,6 +24,7 @@
 - (IBAction) practiceButtonClicked: (id) sender;
 
 
+@property (nonatomic, strong) IBOutlet UIWebView *mainWebView;
 @property (nonatomic, strong) UIButton *practiceButton;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIImageView *activityPopup;

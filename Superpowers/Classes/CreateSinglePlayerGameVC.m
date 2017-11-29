@@ -40,7 +40,7 @@
 	NSString *responseStr = [WebServicesFunctions getResponseFromServerUsingPost:webAddr:nameList:valueList];
         
 	if([responseStr length]>=7 && [[responseStr substringToIndex:7] isEqualToString:@"Success"])
-		[ObjectiveCScripts showAlertPopupWithDelegate:@"Success!" :@"" :self];
+		[ObjectiveCScripts showAlertPopupWithDelegate:@"Success!" :@"Press the Game button again to enter your game." :self];
 	else
 		[ObjectiveCScripts showAlertPopupWithDelegate:@"Done" :@"Game was created or maybe an error occurred. Check game screen." :self];
 	

@@ -165,66 +165,7 @@
 	NSArray *lines = [contents componentsSeparatedByString:@"\n"];
 	return lines;
 }
-/*
-+(BOOL)limitTextViewLength:(UITextView *)textViewLocal:(NSString *)currentText:(NSString *)string:(int)limit:(UIBarButtonItem *)saveButton:(BOOL)resignOnReturn
-{
-	if([string isEqualToString:@"|"])
-		return NO;
-	if([string isEqualToString:@"`"])
-		return NO;
-	
-	if(saveButton != nil) {
-		if([string length]==0 && [currentText length]==1)
-			saveButton.enabled = NO;
-		else 
-			saveButton.enabled = YES;
-	}
-	
-	if(resignOnReturn && [string isEqualToString:@"\n"]) {
-		[textViewLocal resignFirstResponder];
-		return NO;
-	}
-	
-	if( [string length]==0)
-		return YES;
-	
-	if([textViewLocal.text length]>=limit)
-		return NO;  //prevents change
-	else {
-		return YES;
-	}
-}
- */
-/*
-+(BOOL)limitTextFieldLength:(UITextField *)textViewLocal:(NSString *)currentText:(NSString *)string:(int)limit:(UIBarButtonItem *)saveButton:(BOOL)resignOnReturn
-{
-	if([string isEqualToString:@"|"])
-		return NO;
-	if([string isEqualToString:@"`"])
-		return NO;
-	
-	if(saveButton != nil) {
-		if([string length]==0 && [currentText length]==1)
-			saveButton.enabled = NO;
-		else 
-			saveButton.enabled = YES;
-	}
-	
-	if(resignOnReturn && [string isEqualToString:@"\n"]) {
-		[textViewLocal resignFirstResponder];
-		return NO;
-	}
-	
-	if( [string length]==0)
-		return YES;
-	
-	if([textViewLocal.text length]>=limit)
-		return NO;  //prevents change
-	else {
-		return YES;
-	}
-}
-*/
+
 +(NSString *)formatForDataBase:(NSString *)str
 {
 	str = [str stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
@@ -628,8 +569,19 @@ int randomSort(id obj1, id obj2, void *context) {
     return img;
 }
 
++(UIColor *)primaryButtonColor {
+	return [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+}
+
++(UIColor *)themeBGColor {
+	return [UIColor colorWithRed:0 green:.2 blue:.85 alpha:1];
+}
+
 +(UIBarButtonItem *)navigationButtonWithTitle:(NSString *)title selector:(SEL)selector target:(id)target
 {
+	
+	return [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:target action:selector];
+	/*
 	float fontSize=14;
 	int width=40+(int)title.length*7;
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -643,6 +595,7 @@ int randomSort(id obj1, id obj2, void *context) {
 	button.frame = CGRectMake(0, 0, width, 34);
 	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];
 	return barButton;
+	 */
 }
 
 +(UIColor *)colofForNation:(int)nation {

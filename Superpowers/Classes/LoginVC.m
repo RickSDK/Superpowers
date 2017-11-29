@@ -10,7 +10,7 @@
 #import "ObjectiveCScripts.h"
 #import "WebServicesFunctions.h"
 #import "CreateNewAccount.h"
-#import "MainMenuVC.h"
+#import "StartVC.h"
 
 
 @implementation LoginVC
@@ -46,8 +46,7 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	MainMenuVC *detailViewController = [[MainMenuVC alloc] initWithNibName:@"MainMenuVC" bundle:nil];
-	detailViewController.showDisolve=YES;
+	StartVC *detailViewController = [[StartVC alloc] initWithNibName:@"StartVC" bundle:nil];
 	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 
@@ -59,7 +58,7 @@
 		NSString *webAddr = @"http://www.superpowersgame.com/scripts/iPhoneLogin.php";
 		NSString *responseStr = @"";
 		responseStr = [WebServicesFunctions getResponseFromServerUsingPost:webAddr:nameList:valueList];
-//	NSLog(@"responseStr: %@", responseStr);
+	NSLog(@"responseStr: %@", responseStr);
 		if([WebServicesFunctions validateStandardResponse:responseStr:nil]) {
 			NSArray *items = [responseStr componentsSeparatedByString:@"|"];
 			NSString *firstName = @"";
@@ -135,8 +134,8 @@
 
 - (IBAction) forgotPressed: (id) sender
 {
-	if([loginEmail.text length]<5) {
-		[ObjectiveCScripts showAlertPopup:@"Error" :@"Enter a valid Emaill Address"];
+	if(loginEmail.text.length==0) {
+		[ObjectiveCScripts showAlertPopup:@"Error" :@"Enter your username or Email Address int the username field, then press 'Forgot Password' button."];
 		return;
 	}
 	[self executeThreadedJob:@selector(forgotPassword)];
@@ -156,9 +155,6 @@
 	activityBG.alpha=0;
 	activityLabel.alpha=0;
 
-//	UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithTitle:@"Create New Account" style:UIBarButtonItemStylePlain target:self action:@selector(createNewAccountPressed:)];
-//	self.navigationItem.rightBarButtonItem = homeButton;
-	
 	loginEmail.text = [ObjectiveCScripts getUserDefaultValue:@"prevUserName"];
 
 	if([ObjectiveCScripts getProductionMode]) {

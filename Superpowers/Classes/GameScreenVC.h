@@ -15,14 +15,14 @@
 	IBOutlet UISegmentedControl *gameSegment;
 	IBOutlet UIWebView *mainWebView;
 	IBOutlet UIScrollView *mainScrollView;
-    IBOutlet UIToolbar *topToolBar;
+    IBOutlet UIView *topToolBar;
     IBOutlet UIButton *undoButton;
     IBOutlet UIButton *actionButton;
     IBOutlet UIButton *completeButton;
 	GameObj *gameObj;
 	
-	IBOutlet UIToolbar *bottomToolBar;
-	IBOutlet UIToolbar *bottomGrayToolBar;
+	IBOutlet UIView *bottomToolBar;
+	IBOutlet UIView *bottomGrayToolBar;
     UIBarButtonItem *takeTurnButton;
 //	NSString *gameName;
 	BOOL buy3_flg;
@@ -116,6 +116,7 @@
 - (IBAction) xButtonClicked: (id) sender;
 - (IBAction) moreButtonClicked: (id) sender;
 - (IBAction) botXButtonClicked: (id) sender;
+- (IBAction) trainingXButtonClicked: (id) sender;
 
 - (IBAction) place3InfoButtonClicked: (id) sender;
 - (IBAction) place3ClearButtonClicked: (id) sender;
@@ -126,9 +127,9 @@
 -(void) setReturningValue:(NSString *) value;
 
 @property (atomic, strong) GameObj *gameObj;
-@property (atomic, strong) UIToolbar *bottomGrayToolBar;;
-@property (atomic, strong) UIToolbar *bottomToolBar;
-@property (atomic, strong) UIToolbar *topToolBar;
+@property (atomic, strong) UIView *bottomGrayToolBar;;
+@property (atomic, strong) UIView *bottomToolBar;
+@property (atomic, strong) UIView *topToolBar;
 @property (atomic, strong) UIButton *undoButton;
 @property (atomic, strong) UIButton *actionButton;
 @property (atomic, strong) UIButton *completeButton;
@@ -226,6 +227,8 @@
 @property (atomic, strong) IBOutlet UILabel *place3Label3;
 @property (atomic, strong) IBOutlet UIButton *place3ClearButton;
 @property (atomic, strong) IBOutlet UIButton *place3DoneButton;
+@property (atomic, strong) IBOutlet UIView *trainingHelpView;
+@property (atomic, strong) IBOutlet UILabel *trainingHelpMessage;
 
 
 

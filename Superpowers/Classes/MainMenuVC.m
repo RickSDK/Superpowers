@@ -40,40 +40,37 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	[self setTitle:@"Main Menu"];
 	
-	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
+	[self styleNavBar];
 	
 	self.versionLabel.text = [NSString stringWithFormat:@"%@", [ObjectiveCScripts getProjectDisplayVersion]];
 	
 	self.popupView.hidden=YES;
 	
-	if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
-		UIImage *image = [UIImage imageNamed:@"BlueGrad.png"];
-		[self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-		self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1 green:.8 blue:0 alpha:1];
-	}
 	
-	[self setTitle:@"Main Menu"];
 	
 
 	
 	retryButton.alpha=0;
 	
-	titleScreen.frame = [[UIScreen mainScreen] bounds];
+//	titleScreen.frame = [[UIScreen mainScreen] bounds];
 	
-	if(titleScreen.frame.size.width>500)
-		self.mapImg.alpha=0;
+//	if(titleScreen.frame.size.width>500)
+//		self.mapImg.alpha=0;
 	
-	titleScreen.alpha=1;
-	[[[[UIApplication sharedApplication] delegate] window] addSubview:titleScreen];
-	[[[[UIApplication sharedApplication] delegate] window] addSubview:activityIndicator];
+//	titleScreen.alpha=1;
+//	[[[[UIApplication sharedApplication] delegate] window] addSubview:titleScreen];
+//	[[[[UIApplication sharedApplication] delegate] window] addSubview:activityIndicator];
 	
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"⬅" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonClicked)];
+
 	NSString *userName = [ObjectiveCScripts getUserDefaultValue:@"userName"];
 	NSString *buttonName = ([userName length]>0)?@"Logout":@"Login";
 	self.navigationItem.rightBarButtonItem = [ObjectiveCScripts navigationButtonWithTitle:buttonName selector:@selector(loginButtonClicked:) target:self];
 	
 	
-	self.navigationItem.leftBarButtonItem = [ObjectiveCScripts navigationButtonWithTitle:@"About" selector:@selector(aboutButtonClicked:) target:self];
+//	self.navigationItem.leftBarButtonItem = [ObjectiveCScripts navigationButtonWithTitle:@"About" selector:@selector(aboutButtonClicked:) target:self];
 	
 	[ObjectiveCScripts setUserDefaultValue:@"N" forKey:@"serverUp"];
 	
@@ -85,18 +82,31 @@
 		[self showBlankScreen];
 	}
 
-	if(showDisolve) {
-		self.logoAlpha=100;
-		titleScreen.alpha=1;
-		self.screenLock=YES;
-		[self logoDisolve];
-	}
+//	if(showDisolve) {
+//		self.logoAlpha=100;
+//		titleScreen.alpha=1;
+//		self.screenLock=YES;
+//		[self logoDisolve];
+//	}
 
 	self.mainWebView.hidden=YES;
 	self.hideVideoButton.hidden=YES;
 	if([[ObjectiveCScripts getUserDefaultValue:@"initVideo"] length]==0) {
 		[ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"initVideo"];
 		[self playVideo];
+	}
+}
+
+-(void)backButtonClicked {
+	[self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)styleNavBar {
+	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
+	if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+		UIImage *image = [UIImage imageNamed:@"BlueGrad.png"];
+		[self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+		self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1 green:.8 blue:0 alpha:1];
 	}
 }
 
@@ -433,8 +443,8 @@
 }
 
 - (IBAction) newPlayersButtonClicked: (id) sender {
-	NewPlayersVC *detailViewController = [[NewPlayersVC alloc] initWithNibName:@"NewPlayersVC" bundle:nil];
-	detailViewController.title = @"New Players";
+	LadderDetailsVC *detailViewController = [[LadderDetailsVC alloc] initWithNibName:@"LadderDetailsVC" bundle:nil];
+	detailViewController.userRank=self.loginObj.rating;
 	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 
@@ -488,12 +498,6 @@
 	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-
-
-
-
-
-
 -(void)loginButtonClicked:(id)sender {
 	if([[ObjectiveCScripts getUserDefaultValue:@"userName"] length]>0) {
 		[ObjectiveCScripts setUserDefaultValue:nil forKey:@"emailAddress"];
@@ -508,7 +512,6 @@
 -(void)aboutButtonClicked:(id)sender {
 	self.popupView.hidden=!self.popupView.hidden;
 }
-
 
 - (IBAction) rankedButtonClicked:(id)sender {
 	LeadersVC *detailViewController = [[LeadersVC alloc] initWithNibName:@"LeadersVC" bundle:nil];
@@ -547,8 +550,5 @@
 	self.mainWebView.mediaPlaybackRequiresUserAction = NO;
 	[self.mainWebView loadRequest:requestObj];
 }
-
-
-
 
 @end

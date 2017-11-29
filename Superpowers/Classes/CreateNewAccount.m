@@ -9,7 +9,7 @@
 #import "CreateNewAccount.h"
 #import "WebServicesFunctions.h"
 #import "ObjectiveCScripts.h"
-#import "MainMenuVC.h"
+#import "LoginVC.h"
 
 
 @implementation CreateNewAccount
@@ -121,8 +121,7 @@
 
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	MainMenuVC *detailViewController = [[MainMenuVC alloc] initWithNibName:@"MainMenuVC" bundle:nil];
-	detailViewController.showDisolve=YES;
+	LoginVC *detailViewController = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil];
 	[self.navigationController pushViewController:detailViewController animated:YES];
 }
 

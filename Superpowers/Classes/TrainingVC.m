@@ -19,11 +19,36 @@
 @synthesize practiceButton, game_id;
 @synthesize activityIndicator, activityPopup, activityLabel;
 
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	[self setTitle:@"Training"];
+	
+	activityPopup.alpha=0;
+	activityLabel.alpha=0;
+	self.mainWebView.hidden=YES;
+	
+}
+
 - (IBAction) basicsButtonClicked: (id) sender
 {
-	RulesVC *detailViewController = [[RulesVC alloc] initWithNibName:@"RulesVC" bundle:nil];
-	[self.navigationController pushViewController:detailViewController animated:YES];
+	[ObjectiveCScripts setUserDefaultValue:@"Y" forKey:@"videoWatchedFlg"];
+	if(self.mainWebView.hidden) {
+		NSString *movieFile= [[NSBundle mainBundle] pathForResource:@"bt" ofType:@"mp4"];
+		[self playVideo:movieFile];
+	} else
+		self.mainWebView.hidden=YES;
+
+}
+
+-(void)playVideo:(NSString *)videoStr {
+	if([ObjectiveCScripts screenWidth]>320) {
+		self.mainWebView.hidden=NO;
+	}
 	
+	NSURL *url = [NSURL URLWithString:videoStr];
+	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+	self.mainWebView.mediaPlaybackRequiresUserAction = NO;
+	[self.mainWebView loadRequest:requestObj];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -68,7 +93,7 @@
 - (IBAction) practiceButtonClicked: (id) sender
 {
 	if([ObjectiveCScripts getUserDefaultValue:@"videoWatchedFlg"].length==0) {
-		[ObjectiveCScripts showAlertPopup:@"Watch the 'Basic Training' video under Game Rules first.":@""];
+		[ObjectiveCScripts showAlertPopup:@"Watch the 'Basic Training' video first.":@""];
 		return;
 	}
 	activityPopup.alpha=1;
@@ -79,14 +104,7 @@
 	
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-	[self setTitle:@"Training"];
-	
-	activityPopup.alpha=0;
-	activityLabel.alpha=0;
 
-}
 
 
 

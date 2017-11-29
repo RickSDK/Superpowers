@@ -55,6 +55,7 @@
 	if(self.messagetextField.text.length==0) {
 		return;
 	}
+	[self.messagetextField resignFirstResponder];
 	self.sendButton.enabled=NO;
 	[self.webServiceView start];
 	[self performSelectorInBackground:@selector(postMessage) withObject:nil];

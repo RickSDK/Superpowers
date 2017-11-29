@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSString *cancelFlg;
 @property (nonatomic, strong) NSString *lastLogin;
 @property (nonatomic, strong) NSString *accountSitReason;
+@property (nonatomic, strong) NSString *battleZoneName;
 
 @property (nonatomic, strong) NSMutableArray *playerList;
 
@@ -40,6 +41,7 @@
 @property (nonatomic) int maxAllies;
 @property (nonatomic) int victoryRound;
 @property (nonatomic) int currentTurnUserId;
+@property (nonatomic) int battleZoneNumber;
 
 @property (nonatomic) BOOL autoStartFlg;
 @property (nonatomic) BOOL autoSkipFlg;

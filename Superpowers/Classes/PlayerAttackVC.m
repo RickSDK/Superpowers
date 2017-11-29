@@ -98,7 +98,7 @@
             }
         }
         
-        [NSThread sleepForTimeInterval:.5];
+        [NSThread sleepForTimeInterval:.3];
 
         
  //       [self.activityIndicator stopAnimating];
@@ -111,7 +111,12 @@
 		
 		self.logsButton.enabled=YES;
 		self.mapButton.enabled=YES;
-
+		
+		if(1) {
+			self.mainWebView.hidden=NO;
+			self.logsButton.hidden=YES;
+			self.mapButton.hidden=YES;
+		}
 
 	}
 }

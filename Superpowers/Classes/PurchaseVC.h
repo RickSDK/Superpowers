@@ -82,6 +82,7 @@
 - (IBAction) multiBuy3ButtonClicked: (id) sender;
 - (IBAction) multiBuy4ButtonClicked: (id) sender;
 - (IBAction) technologiesButtonClicked: (id) sender;
+- (IBAction) autoBuyButtonClicked: (id) sender;
 -(void) setReturningValue:(NSString *) value;
 
 @property (atomic, strong) UISegmentedControl *unitSegment;
@@ -117,6 +118,7 @@
 @property (atomic, strong) UILabel *piece3Label;
 @property (atomic, strong) UILabel *piece4Label;
 @property (atomic, strong) IBOutlet UILabel *numTechsLabel;
+@property (atomic, strong) IBOutlet UIButton *autoPurchaseButton;
 @property (atomic, strong) UITextView *purchasesTextView;
 
 @property (atomic, strong)  UIImageView *piece1ImageView;

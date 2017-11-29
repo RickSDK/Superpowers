@@ -54,6 +54,7 @@
     
     
     NSURL *url = [NSURL URLWithString:link];
+	NSLog(@"Loading page: %@", link);
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.mainWebView loadRequest:requestObj];
     
